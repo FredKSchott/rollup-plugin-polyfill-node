@@ -3,6 +3,7 @@ export default {
 	input: 'dist-transpiled/index.js',
 	external: [
 		'path',
+		'crypto',
 		'rollup-plugin-inject'
 	],
 	output: [
