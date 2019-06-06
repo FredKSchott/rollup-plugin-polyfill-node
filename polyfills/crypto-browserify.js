@@ -8106,50 +8106,37 @@ function getr(priv) {
   return r;
 }
 
-var _from = "elliptic@^6.0.0";
-var _id = "elliptic@6.4.1";
-var _inBundle = false;
-var _integrity = "sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==";
-var _location = "/elliptic";
-var _phantomChildren = {
-};
-var _requested = {
-	type: "range",
-	registry: true,
-	raw: "elliptic@^6.0.0",
-	name: "elliptic",
-	escapedName: "elliptic",
-	rawSpec: "^6.0.0",
-	saveSpec: null,
-	fetchSpec: "^6.0.0"
-};
-var _requiredBy = [
-	"/browserify-sign",
-	"/create-ecdh"
+var name = "elliptic";
+var version = "6.4.1";
+var description = "EC cryptography";
+var main = "lib/elliptic.js";
+var files = [
+	"lib"
 ];
-var _resolved = "https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz";
-var _shasum = "c2d0b7776911b86722c632c3c06c60f2f819939a";
-var _spec = "elliptic@^6.0.0";
-var _where = "/Users/manualmeida/repos/ionic/rollup-plugin-node-polyfills/node_modules/browserify-sign";
-var author = {
-	name: "Fedor Indutny",
-	email: "fedor@indutny.com"
+var scripts = {
+	jscs: "jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js",
+	jshint: "jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js",
+	lint: "npm run jscs && npm run jshint",
+	unit: "istanbul test _mocha --reporter=spec test/index.js",
+	test: "npm run lint && npm run unit",
+	version: "grunt dist && git add dist/"
 };
+var repository = {
+	type: "git",
+	url: "git@github.com:indutny/elliptic"
+};
+var keywords = [
+	"EC",
+	"Elliptic",
+	"curve",
+	"Cryptography"
+];
+var author = "Fedor Indutny <fedor@indutny.com>";
+var license = "MIT";
 var bugs = {
 	url: "https://github.com/indutny/elliptic/issues"
 };
-var bundleDependencies = false;
-var dependencies = {
-	"bn.js": "^4.4.0",
-	brorand: "^1.0.1",
-	"hash.js": "^1.0.0",
-	"hmac-drbg": "^1.0.0",
-	inherits: "^2.0.1",
-	"minimalistic-assert": "^1.0.0",
-	"minimalistic-crypto-utils": "^1.0.0"
-};
-var deprecated = false;
-var description = "EC cryptography";
+var homepage = "https://github.com/indutny/elliptic";
 var devDependencies = {
 	brfs: "^1.4.3",
 	coveralls: "^2.11.3",
@@ -8166,92 +8153,56 @@ var devDependencies = {
 	jshint: "^2.6.0",
 	mocha: "^2.1.0"
 };
-var files = [
-	"lib"
-];
-var homepage = "https://github.com/indutny/elliptic";
-var keywords = [
-	"EC",
-	"Elliptic",
-	"curve",
-	"Cryptography"
-];
-var license = "MIT";
-var main = "lib/elliptic.js";
-var name = "elliptic";
-var repository = {
-	type: "git",
-	url: "git+ssh://git@github.com/indutny/elliptic.git"
+var dependencies = {
+	"bn.js": "^4.4.0",
+	brorand: "^1.0.1",
+	"hash.js": "^1.0.0",
+	"hmac-drbg": "^1.0.0",
+	inherits: "^2.0.1",
+	"minimalistic-assert": "^1.0.0",
+	"minimalistic-crypto-utils": "^1.0.0"
 };
-var scripts = {
-	jscs: "jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js",
-	jshint: "jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js",
-	lint: "npm run jscs && npm run jshint",
-	test: "npm run lint && npm run unit",
-	unit: "istanbul test _mocha --reporter=spec test/index.js",
-	version: "grunt dist && git add dist/"
-};
-var version = "6.4.1";
+var _resolved = "https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz";
+var _integrity = "sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==";
+var _from = "elliptic@6.4.1";
 var _package = {
-	_from: _from,
-	_id: _id,
-	_inBundle: _inBundle,
-	_integrity: _integrity,
-	_location: _location,
-	_phantomChildren: _phantomChildren,
-	_requested: _requested,
-	_requiredBy: _requiredBy,
-	_resolved: _resolved,
-	_shasum: _shasum,
-	_spec: _spec,
-	_where: _where,
-	author: author,
-	bugs: bugs,
-	bundleDependencies: bundleDependencies,
-	dependencies: dependencies,
-	deprecated: deprecated,
-	description: description,
-	devDependencies: devDependencies,
-	files: files,
-	homepage: homepage,
-	keywords: keywords,
-	license: license,
-	main: main,
 	name: name,
-	repository: repository,
+	version: version,
+	description: description,
+	main: main,
+	files: files,
 	scripts: scripts,
-	version: version
+	repository: repository,
+	keywords: keywords,
+	author: author,
+	license: license,
+	bugs: bugs,
+	homepage: homepage,
+	devDependencies: devDependencies,
+	dependencies: dependencies,
+	_resolved: _resolved,
+	_integrity: _integrity,
+	_from: _from
 };
 
 var _package$1 = /*#__PURE__*/Object.freeze({
-	_from: _from,
-	_id: _id,
-	_inBundle: _inBundle,
-	_integrity: _integrity,
-	_location: _location,
-	_phantomChildren: _phantomChildren,
-	_requested: _requested,
-	_requiredBy: _requiredBy,
-	_resolved: _resolved,
-	_shasum: _shasum,
-	_spec: _spec,
-	_where: _where,
-	author: author,
-	bugs: bugs,
-	bundleDependencies: bundleDependencies,
-	dependencies: dependencies,
-	deprecated: deprecated,
-	description: description,
-	devDependencies: devDependencies,
-	files: files,
-	homepage: homepage,
-	keywords: keywords,
-	license: license,
-	main: main,
 	name: name,
-	repository: repository,
-	scripts: scripts,
 	version: version,
+	description: description,
+	main: main,
+	files: files,
+	scripts: scripts,
+	repository: repository,
+	keywords: keywords,
+	author: author,
+	license: license,
+	bugs: bugs,
+	homepage: homepage,
+	devDependencies: devDependencies,
+	dependencies: dependencies,
+	_resolved: _resolved,
+	_integrity: _integrity,
+	_from: _from,
 	'default': _package
 });
 

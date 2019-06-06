@@ -5147,136 +5147,27 @@ var readable_4 = readable.Duplex;
 var readable_5 = readable.Transform;
 var readable_6 = readable.PassThrough;
 
-var _from = "levelup@^0.18.2";
-var _id = "levelup@0.18.6";
-var _inBundle = false;
-var _integrity = "sha1-5qAcsIlhbI7MApHCqb0/DETj5es=";
-var _location = "/levelup";
-var _phantomChildren = {
-	"core-util-is": "1.0.2",
-	inherits: "2.0.3"
-};
-var _requested = {
-	type: "range",
-	registry: true,
-	raw: "levelup@^0.18.2",
-	name: "levelup",
-	escapedName: "levelup",
-	rawSpec: "^0.18.2",
-	saveSpec: null,
-	fetchSpec: "^0.18.2"
-};
-var _requiredBy = [
-	"/browserify-fs"
-];
-var _resolved = "https://registry.npmjs.org/levelup/-/levelup-0.18.6.tgz";
-var _shasum = "e6a01cb089616c8ecc0291c2a9bd3f0c44e3e5eb";
-var _spec = "levelup@^0.18.2";
-var _where = "/Users/manualmeida/repos/ionic/rollup-plugin-node-polyfills/node_modules/browserify-fs";
-var browser = {
-	leveldown: false,
-	"leveldown/package": false,
-	semver: false
-};
-var bugs = {
-	url: "https://github.com/rvagg/node-levelup/issues"
-};
-var bundleDependencies = false;
-var contributors = [
-	{
-		name: "Rod Vagg",
-		email: "r@va.gg",
-		url: "https://github.com/rvagg"
-	},
-	{
-		name: "John Chesley",
-		email: "john@chesl.es",
-		url: "https://github.com/chesles/"
-	},
-	{
-		name: "Jake Verbaten",
-		email: "raynos2@gmail.com",
-		url: "https://github.com/raynos"
-	},
-	{
-		name: "Dominic Tarr",
-		email: "dominic.tarr@gmail.com",
-		url: "https://github.com/dominictarr"
-	},
-	{
-		name: "Max Ogden",
-		email: "max@maxogden.com",
-		url: "https://github.com/maxogden"
-	},
-	{
-		name: "Lars-Magnus Skog",
-		email: "lars.magnus.skog@gmail.com",
-		url: "https://github.com/ralphtheninja"
-	},
-	{
-		name: "David Björklund",
-		email: "david.bjorklund@gmail.com",
-		url: "https://github.com/kesla"
-	},
-	{
-		name: "Julian Gruber",
-		email: "julian@juliangruber.com",
-		url: "https://github.com/juliangruber"
-	},
-	{
-		name: "Paolo Fragomeni",
-		email: "paolo@async.ly",
-		url: "https://github.com/hij1nx"
-	},
-	{
-		name: "Anton Whalley",
-		email: "anton.whalley@nearform.com",
-		url: "https://github.com/No9"
-	},
-	{
-		name: "Matteo Collina",
-		email: "matteo.collina@gmail.com",
-		url: "https://github.com/mcollina"
-	},
-	{
-		name: "Pedro Teixeira",
-		email: "pedro.teixeira@gmail.com",
-		url: "https://github.com/pgte"
-	},
-	{
-		name: "James Halliday",
-		email: "mail@substack.net",
-		url: "https://github.com/substack"
-	}
-];
-var dependencies = {
-	bl: "~0.8.1",
-	"deferred-leveldown": "~0.2.0",
-	errno: "~0.1.1",
-	prr: "~0.0.0",
-	"readable-stream": "~1.0.26",
-	semver: "~2.3.1",
-	xtend: "~3.0.0"
-};
-var deprecated = false;
+var name = "levelup";
 var description = "Fast & simple storage - a Node.js-style LevelDB wrapper";
-var devDependencies = {
-	async: "*",
-	boganipsum: "*",
-	bustermove: "*",
-	delayed: "*",
-	du: "*",
-	fstream: "*",
-	leveldown: "~0.10.0",
-	memdown: "*",
-	mkfiletree: "*",
-	"msgpack-js": "*",
-	readfiletree: "*",
-	referee: "*",
-	rimraf: "*",
-	"slow-stream": ">=0.0.4",
-	tap: "*",
-	tar: "*"
+var version = "0.18.6";
+var contributors = [
+	"Rod Vagg <r@va.gg> (https://github.com/rvagg)",
+	"John Chesley <john@chesl.es> (https://github.com/chesles/)",
+	"Jake Verbaten <raynos2@gmail.com> (https://github.com/raynos)",
+	"Dominic Tarr <dominic.tarr@gmail.com> (https://github.com/dominictarr)",
+	"Max Ogden <max@maxogden.com> (https://github.com/maxogden)",
+	"Lars-Magnus Skog <lars.magnus.skog@gmail.com> (https://github.com/ralphtheninja)",
+	"David Björklund <david.bjorklund@gmail.com> (https://github.com/kesla)",
+	"Julian Gruber <julian@juliangruber.com> (https://github.com/juliangruber)",
+	"Paolo Fragomeni <paolo@async.ly> (https://github.com/hij1nx)",
+	"Anton Whalley <anton.whalley@nearform.com> (https://github.com/No9)",
+	"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
+	"Pedro Teixeira <pedro.teixeira@gmail.com> (https://github.com/pgte)",
+	"James Halliday <mail@substack.net> (https://github.com/substack)"
+];
+var repository = {
+	type: "git",
+	url: "https://github.com/rvagg/node-levelup.git"
 };
 var homepage = "https://github.com/rvagg/node-levelup";
 var keywords = [
@@ -5288,79 +5179,84 @@ var keywords = [
 	"storage",
 	"json"
 ];
-var license = "MIT";
 var main = "lib/levelup.js";
-var name = "levelup";
-var repository = {
-	type: "git",
-	url: "git+https://github.com/rvagg/node-levelup.git"
+var dependencies = {
+	bl: "~0.8.1",
+	"deferred-leveldown": "~0.2.0",
+	errno: "~0.1.1",
+	prr: "~0.0.0",
+	"readable-stream": "~1.0.26",
+	semver: "~2.3.1",
+	xtend: "~3.0.0"
+};
+var devDependencies = {
+	leveldown: "~0.10.0",
+	bustermove: "*",
+	tap: "*",
+	referee: "*",
+	rimraf: "*",
+	async: "*",
+	fstream: "*",
+	tar: "*",
+	mkfiletree: "*",
+	readfiletree: "*",
+	"slow-stream": ">=0.0.4",
+	delayed: "*",
+	boganipsum: "*",
+	du: "*",
+	memdown: "*",
+	"msgpack-js": "*"
+};
+var browser = {
+	leveldown: false,
+	"leveldown/package": false,
+	semver: false
 };
 var scripts = {
-	alltests: "npm test && npm run-script functionaltests",
+	test: "tap test/*-test.js --stderr",
 	functionaltests: "node ./test/functional/fstream-test.js && node ./test/functional/binary-data-test.js && node ./test/functional/compat-test.js",
-	test: "tap test/*-test.js --stderr"
+	alltests: "npm test && npm run-script functionaltests"
 };
-var version = "0.18.6";
+var license = "MIT";
+var _resolved = "https://registry.npmjs.org/levelup/-/levelup-0.18.6.tgz";
+var _integrity = "sha1-5qAcsIlhbI7MApHCqb0/DETj5es=";
+var _from = "levelup@0.18.6";
 var _package = {
-	_from: _from,
-	_id: _id,
-	_inBundle: _inBundle,
-	_integrity: _integrity,
-	_location: _location,
-	_phantomChildren: _phantomChildren,
-	_requested: _requested,
-	_requiredBy: _requiredBy,
-	_resolved: _resolved,
-	_shasum: _shasum,
-	_spec: _spec,
-	_where: _where,
-	browser: browser,
-	bugs: bugs,
-	bundleDependencies: bundleDependencies,
-	contributors: contributors,
-	dependencies: dependencies,
-	deprecated: deprecated,
+	name: name,
 	description: description,
-	devDependencies: devDependencies,
+	version: version,
+	contributors: contributors,
+	repository: repository,
 	homepage: homepage,
 	keywords: keywords,
-	license: license,
 	main: main,
-	name: name,
-	repository: repository,
+	dependencies: dependencies,
+	devDependencies: devDependencies,
+	browser: browser,
 	scripts: scripts,
-	version: version
+	license: license,
+	_resolved: _resolved,
+	_integrity: _integrity,
+	_from: _from
 };
 
 var _package$1 = /*#__PURE__*/Object.freeze({
-	_from: _from,
-	_id: _id,
-	_inBundle: _inBundle,
-	_integrity: _integrity,
-	_location: _location,
-	_phantomChildren: _phantomChildren,
-	_requested: _requested,
-	_requiredBy: _requiredBy,
-	_resolved: _resolved,
-	_shasum: _shasum,
-	_spec: _spec,
-	_where: _where,
-	browser: browser,
-	bugs: bugs,
-	bundleDependencies: bundleDependencies,
-	contributors: contributors,
-	dependencies: dependencies,
-	deprecated: deprecated,
+	name: name,
 	description: description,
-	devDependencies: devDependencies,
+	version: version,
+	contributors: contributors,
+	repository: repository,
 	homepage: homepage,
 	keywords: keywords,
-	license: license,
 	main: main,
-	name: name,
-	repository: repository,
+	dependencies: dependencies,
+	devDependencies: devDependencies,
+	browser: browser,
 	scripts: scripts,
-	version: version,
+	license: license,
+	_resolved: _resolved,
+	_integrity: _integrity,
+	_from: _from,
 	'default': _package
 });
 
