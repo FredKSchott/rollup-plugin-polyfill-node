@@ -1,11 +1,11 @@
-rollup-plugin-node-builtins
+rollup-plugin-node-polyfills
 ===
 
 ```
-npm install --save-dev rollup-plugin-node-builtins
+npm install --save-dev rollup-plugin-node-polyfills
 ```
 
-Allows the node builtins to be `require`d/`import`ed. Doing so gives the proper shims to support modules that were designed for Browserify, some modules require [rollup-plugin-node-globals](https://github.com/calvinmetcalf/rollup-plugin-node-globals).
+Allows the node builtins to be `require`d/`import`ed.
 
 The following modules include ES6 specific version which allow you to do named imports in addition to the default import and should work fine if you only use this plugin.
 
@@ -42,7 +42,6 @@ The following modules include ES6 specific version which allow you to do named i
 - fs˚
 - crypto˚
 
-\* requires [node-globals plugin](https://github.com/calvinmetcalf/rollup-plugin-node-globals)
 
 † the http and https modules are actually the same and don't differentiate based on protocol
 
@@ -56,18 +55,16 @@ The following modules include ES6 specific version which allow you to do named i
 
 Crypto is not shimmed and and we just provide the commonjs one from browserify  and it will likely not work, if you really want it please pass `{crypto: true}` as an option.
 
-
-
 Not all included modules rollup equally, streams (and by extension anything that requires it like http) are a mess of circular references that are pretty much impossible to tree-shake out, similarly url methods are actually a shortcut to a url object so those methods don't tree shake out very well, punycode, path, querystring, events, util, and process tree shake very well especially if you do named imports.
 
 config for using this with something simple like events or querystring
 
 ```js
-import builtins from 'rollup-plugin-node-builtins';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 rollup({
   entry: 'main.js',
   plugins: [
-    builtins()
+    nodePolyfills()
   ]
 })
 ```
@@ -84,13 +81,11 @@ import {inherits} from 'util';
 Config for something more complicated like http
 
 ```js
-import builtins from 'rollup-plugin-node-builtins';
-import globals from 'rollup-plugin-node-globals';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 rollup({
   entry: 'main.js',
   plugins: [
-    globals(),
-    builtins()
+    nodePolyfills()
   ]
 })
 ```
