@@ -9,8 +9,8 @@ export interface NodePolyfillsOptions {
 export function builtinsResolver(opts: NodePolyfillsOptions) {
   const libs = new Map();
 
-  libs.set('process', require.resolve('process-es6'));
-  libs.set('buffer', require.resolve('buffer-es6'));
+  libs.set('process', require.resolve('../polyfills/process-es6'));
+  libs.set('buffer', require.resolve('../polyfills/buffer-es6'));
   libs.set('util', require.resolve('../polyfills/util'));
   libs.set('sys', libs.get('util'));
   libs.set('events', require.resolve('../polyfills/events'));
@@ -51,10 +51,10 @@ export function builtinsResolver(opts: NodePolyfillsOptions) {
   libs.set('crypto', EMPTY_PATH);
 
   if (opts.fs) {
-    libs.set('fs', require.resolve('browserify-fs'));
+    libs.set('fs', require.resolve('../polyfills/browserify-fs'));
   }
   if (opts.crypto) {
-    libs.set('crypto', require.resolve('crypto-browserify'));
+    libs.set('crypto', require.resolve('../polyfills/crypto-browserify'));
   }
 
   return (importee: string) => {

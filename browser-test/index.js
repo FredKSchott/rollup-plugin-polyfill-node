@@ -1,13 +1,14 @@
 var rollup = require( 'rollup' );
 var nodePolyfills = require('..');
 rollup.rollup({
-  entry: 'browser-test/main.js',
+  input: 'browser-test/main.js',
   plugins: [
     nodePolyfills(),
   ]
 }).then( function ( bundle ) {
   return bundle.write({
-    dest: 'browser-test/dist/bundle.js'
+    format: 'iife',
+    file: 'browser-test/dist/bundle.js'
   });
 }).then(function () {
   console.log('done');
