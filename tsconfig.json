@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "es2015",
+    "target": "es2017",
+    "declaration": true,
+    "outDir": "dist-transpiled",
+    "declarationDir": "dist/types"
+  },
+  "include": [
+    "src/index.ts"
+  ]
+}

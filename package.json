@@ -1,0 +1,46 @@
+{
+  "name": "rollup-plugin-node-polyfills",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "pretest": "npm run build",
+    "test": "mocha",
+    "prebuild": "rm -rf dist && mkdir dist",
+    "build": "npm run build:constants && npm run build:bundlers",
+    "build:bundlers": "tsc -p . && rollup -c",
+    "build:constants": "node scripts/build-constants.js",
+    "version": "npm run build",
+    "release": "np",
+    "browser-test": "serve browser-test/dist",
+    "prebrowser-test": "rm browser-test/dist/bundle.js && npm run build && node ./browser-test/index.js"
+  },
+  "files": [
+    "dist",
+    "polyfills"
+  ],
+  "keywords": [
+    "rollup-plugin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "browserify-fs": "^1.0.0",
+    "buffer-es6": "^4.9.2",
+    "crypto-browserify": "^3.11.0",
+    "process-es6": "^0.11.2",
+    "rollup-plugin-inject": "^2.2.0"
+  },
+  "devDependencies": {
+    "debug": "^2.2.0",
+    "mocha": "^3.0.2",
+    "rollup": "1.13.1",
+    "serve": "^2.0.0",
+    "typescript": "^3.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ionic-team/rollup-plugin-node-polyfills.git"
+  }
+}
