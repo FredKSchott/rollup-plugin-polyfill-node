@@ -26,12 +26,12 @@ export default function (opts: NodePolyfillsOptions = {}) {
       if (importee === DIRNAME_PATH) {
         const id = getRandomId();
         dirs.set(id, dirname('/' + relative(basedir, importer)));
-        return id;
+        return {id, moduleSideEffects: false};
       }
       if (importee === FILENAME_PATH) {
         const id = getRandomId();
         dirs.set(id, dirname('/' + relative(basedir, importer)));
-        return id;
+        return {id, moduleSideEffects: false};
       }
       return resolver(importee);
     },

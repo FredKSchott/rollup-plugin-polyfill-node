@@ -64,7 +64,7 @@ export function builtinsResolver(opts: NodePolyfillsOptions) {
       importee === importee.slice(0, -1);
     }
     if (libs.has(importee)) {
-      return libs.get(importee);
+      return {id: libs.get(importee), moduleSideEffects: false};
     }
     return null;
   }
