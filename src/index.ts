@@ -6,11 +6,15 @@ import { randomBytes } from 'crypto';
 
 export default function (opts: NodePolyfillsOptions = {}) {
   const injectPlugin = inject({
+    include: opts.include,
+    exclude: opts.exclude,
+    modules: {
     'process': 'process',
     'Buffer': ['buffer', 'Buffer'],
     'global': GLOBAL_PATH,
     '__filename': FILENAME_PATH,
     '__dirname': DIRNAME_PATH,
+    }
   });
   const basedir = opts.baseDir || '/';
   const dirs = new Map<string, string>();

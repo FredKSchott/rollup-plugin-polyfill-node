@@ -4,6 +4,8 @@ export interface NodePolyfillsOptions {
   fs?: boolean;
   crypto?: boolean;
   baseDir?: string;
+  include?: Array<string | RegExp> | string | RegExp | null;
+  exclude?: Array<string | RegExp> | string | RegExp | null;
 }
 
 export function builtinsResolver(opts: NodePolyfillsOptions) {
