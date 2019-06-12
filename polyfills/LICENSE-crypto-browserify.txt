@@ -38,6 +38,16 @@ Homepage: https://github.com/crypto-browserify/createHash
 
 ---
 
+Name: browserify-cipher
+Version: 1.0.1
+License: MIT
+Private: false
+Description: ciphers for the browser
+Repository: git@github.com:crypto-browserify/browserify-cipher.git
+Author: Calvin Metcalf <calvin.metcalf@gmail.com>
+
+---
+
 Name: pbkdf2
 Version: 3.0.17
 License: MIT
@@ -46,26 +56,6 @@ Description: This library provides the functionality of PBKDF2 with the ability 
 Repository: https://github.com/crypto-browserify/pbkdf2.git
 Homepage: https://github.com/crypto-browserify/pbkdf2
 Author: Daniel Cousens
-
----
-
-Name: create-hmac
-Version: 1.1.7
-License: MIT
-Private: false
-Description: node style hmacs in the browser
-Repository: https://github.com/crypto-browserify/createHmac.git
-Homepage: https://github.com/crypto-browserify/createHmac
-
----
-
-Name: browserify-cipher
-Version: 1.0.1
-License: MIT
-Private: false
-Description: ciphers for the browser
-Repository: git@github.com:crypto-browserify/browserify-cipher.git
-Author: Calvin Metcalf <calvin.metcalf@gmail.com>
 
 ---
 
@@ -80,6 +70,16 @@ Author: Calvin Metcalf
 
 ---
 
+Name: create-hmac
+Version: 1.1.7
+License: MIT
+Private: false
+Description: node style hmacs in the browser
+Repository: https://github.com/crypto-browserify/createHmac.git
+Homepage: https://github.com/crypto-browserify/createHmac
+
+---
+
 Name: create-ecdh
 Version: 4.0.3
 License: MIT
@@ -91,16 +91,6 @@ Author: Calvin Metcalf
 
 ---
 
-Name: randomfill
-Version: 1.0.4
-License: MIT
-Private: false
-Description: random fill from browserify stand alone
-Repository: https://github.com/crypto-browserify/randomfill.git
-Homepage: https://github.com/crypto-browserify/randomfill
-
----
-
 Name: public-encrypt
 Version: 4.0.3
 License: MIT
@@ -109,6 +99,16 @@ Description: browserify version of publicEncrypt & privateDecrypt
 Repository: https://github.com/crypto-browserify/publicEncrypt.git
 Homepage: https://github.com/crypto-browserify/publicEncrypt
 Author: Calvin Metcalf
+
+---
+
+Name: randomfill
+Version: 1.0.4
+License: MIT
+Private: false
+Description: random fill from browserify stand alone
+Repository: https://github.com/crypto-browserify/randomfill.git
+Homepage: https://github.com/crypto-browserify/randomfill
 
 ---
 
@@ -143,15 +143,6 @@ Author: Feross Aboukhadijeh <feross@feross.org> (http://feross.org)
 
 ---
 
-Name: inherits
-Version: 2.0.3
-License: ISC
-Private: false
-Description: Browser-friendly inheritance fully compatible with standard node.js inherits()
-Repository: undefined
-
----
-
 Name: md5.js
 Version: 1.3.5
 License: MIT
@@ -160,6 +151,15 @@ Description: node style md5 on pure JavaScript
 Repository: https://github.com/crypto-browserify/md5.js.git
 Homepage: https://github.com/crypto-browserify/md5.js
 Author: Kirill Fomichev <fanatid@ya.ru> (https://github.com/fanatid)
+
+---
+
+Name: inherits
+Version: 2.0.3
+License: ISC
+Private: false
+Description: Browser-friendly inheritance fully compatible with standard node.js inherits()
+Repository: undefined
 
 ---
 
@@ -198,12 +198,14 @@ Author: Fedor Indutny <fedor@indutny.com>
 
 ---
 
-Name: parse-asn1
-Version: 5.1.4
-License: ISC
+Name: bn.js
+Version: 4.11.8
+License: MIT
 Private: false
-Description: utility library for parsing asn1 files for use with browserify-sign.
-Repository: git://github.com/crypto-browserify/parse-asn1.git
+Description: Big number implementation in pure javascript
+Repository: git@github.com:indutny/bn.js
+Homepage: https://github.com/indutny/bn.js
+Author: Fedor Indutny <fedor@indutny.com>
 
 ---
 
@@ -216,14 +218,12 @@ Repository: git@github.com:crypto-browserify/browserify-rsa.git
 
 ---
 
-Name: bn.js
-Version: 4.11.8
-License: MIT
+Name: parse-asn1
+Version: 5.1.4
+License: ISC
 Private: false
-Description: Big number implementation in pure javascript
-Repository: git@github.com:indutny/bn.js
-Homepage: https://github.com/indutny/bn.js
-Author: Fedor Indutny <fedor@indutny.com>
+Description: utility library for parsing asn1 files for use with browserify-sign.
+Repository: git://github.com/crypto-browserify/parse-asn1.git
 
 ---
 
@@ -313,6 +313,16 @@ Author: Fedor Indutny
 
 ---
 
+Name: minimalistic-assert
+Version: 1.0.1
+License: ISC
+Private: false
+Description: minimalistic-assert ===
+Repository: https://github.com/calvinmetcalf/minimalistic-assert.git
+Homepage: https://github.com/calvinmetcalf/minimalistic-assert
+
+---
+
 Name: hash.js
 Version: 1.1.7
 License: MIT
@@ -321,16 +331,6 @@ Description: Various hash functions that could be run by both browser and node
 Repository: git@github.com:indutny/hash.js
 Homepage: https://github.com/indutny/hash.js
 Author: Fedor Indutny <fedor@indutny.com>
-
----
-
-Name: minimalistic-assert
-Version: 1.0.1
-License: ISC
-Private: false
-Description: minimalistic-assert ===
-Repository: https://github.com/calvinmetcalf/minimalistic-assert.git
-Homepage: https://github.com/calvinmetcalf/minimalistic-assert
 
 ---
 
