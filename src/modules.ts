@@ -3,6 +3,7 @@ const EMPTY_PATH = require.resolve('../polyfills/empty.js');
 export interface NodePolyfillsOptions {
   fs?: boolean;
   crypto?: boolean;
+  sourceMap?: boolean;
   baseDir?: string;
   include?: Array<string | RegExp> | string | RegExp | null;
   exclude?: Array<string | RegExp> | string | RegExp | null;

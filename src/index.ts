@@ -8,6 +8,7 @@ export default function (opts: NodePolyfillsOptions = {}) {
   const injectPlugin = inject({
     include: opts.include,
     exclude: opts.exclude,
+    sourceMap: opts.sourceMap,
     modules: {
       'process': 'process',
       'Buffer': ['buffer', 'Buffer'],
