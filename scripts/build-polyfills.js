@@ -23,13 +23,13 @@ async function bundleDependency(depName) {
         browser: true,
         preferBuiltins: true
       }),
-      license({
-        thirdParty: {
-          output: path.join(__dirname, '..', 'polyfills', `LICENSE-${depName}.txt`),
-          includePrivate: true, // Default is false.
-          encoding: 'utf-8', // Default is utf-8.
-        }
-      }),
+      // license({
+      //   thirdParty: {
+      //     output: path.join(__dirname, '..', 'polyfills', `LICENSE-${depName}.txt`),
+      //     includePrivate: true, // Default is false.
+      //     encoding: 'utf-8', // Default is utf-8.
+      //   }
+      // }),
       json(),
     ],
     external: [
