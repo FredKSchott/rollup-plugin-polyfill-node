@@ -38,6 +38,17 @@ Homepage: https://github.com/crypto-browserify/createHash
 
 ---
 
+Name: pbkdf2
+Version: 3.0.17
+License: MIT
+Private: false
+Description: This library provides the functionality of PBKDF2 with the ability to use any supported hashing algorithm returned from crypto.getHashes()
+Repository: https://github.com/crypto-browserify/pbkdf2.git
+Homepage: https://github.com/crypto-browserify/pbkdf2
+Author: Daniel Cousens
+
+---
+
 Name: create-hmac
 Version: 1.1.7
 License: MIT
@@ -55,17 +66,6 @@ Private: false
 Description: ciphers for the browser
 Repository: git@github.com:crypto-browserify/browserify-cipher.git
 Author: Calvin Metcalf <calvin.metcalf@gmail.com>
-
----
-
-Name: pbkdf2
-Version: 3.0.17
-License: MIT
-Private: false
-Description: This library provides the functionality of PBKDF2 with the ability to use any supported hashing algorithm returned from crypto.getHashes()
-Repository: https://github.com/crypto-browserify/pbkdf2.git
-Homepage: https://github.com/crypto-browserify/pbkdf2
-Author: Daniel Cousens
 
 ---
 
@@ -174,6 +174,19 @@ Author: Calvin Metcalf <calvin.metcalf@gmail.com>
 
 ---
 
+Name: evp_bytestokey
+Version: 1.0.3
+License: MIT
+Private: false
+Description: The insecure key derivation algorithm from OpenSSL
+Repository: https://github.com/crypto-browserify/EVP_BytesToKey.git
+Homepage: https://github.com/crypto-browserify/EVP_BytesToKey
+Author: Calvin Metcalf <calvin.metcalf@gmail.com>
+Contributors:
+  Kirill Fomichev <fanatid@ya.ru>
+
+---
+
 Name: elliptic
 Version: 6.4.1
 License: MIT
@@ -185,16 +198,12 @@ Author: Fedor Indutny <fedor@indutny.com>
 
 ---
 
-Name: evp_bytestokey
-Version: 1.0.3
-License: MIT
+Name: parse-asn1
+Version: 5.1.4
+License: ISC
 Private: false
-Description: The insecure key derivation algorithm from OpenSSL
-Repository: https://github.com/crypto-browserify/EVP_BytesToKey.git
-Homepage: https://github.com/crypto-browserify/EVP_BytesToKey
-Author: Calvin Metcalf <calvin.metcalf@gmail.com>
-Contributors:
-  Kirill Fomichev <fanatid@ya.ru>
+Description: utility library for parsing asn1 files for use with browserify-sign.
+Repository: git://github.com/crypto-browserify/parse-asn1.git
 
 ---
 
@@ -218,12 +227,12 @@ Author: Fedor Indutny <fedor@indutny.com>
 
 ---
 
-Name: parse-asn1
-Version: 5.1.4
-License: ISC
+Name: ripemd160
+Version: 2.0.2
+License: MIT
 Private: false
-Description: utility library for parsing asn1 files for use with browserify-sign.
-Repository: git://github.com/crypto-browserify/parse-asn1.git
+Description: Compute ripemd160 of bytes or strings.
+Repository: https://github.com/crypto-browserify/ripemd160
 
 ---
 
@@ -235,15 +244,6 @@ Description: Streamable SHA hashes in pure javascript
 Repository: git://github.com/crypto-browserify/sha.js.git
 Homepage: https://github.com/crypto-browserify/sha.js
 Author: Dominic Tarr <dominic.tarr@gmail.com> (dominictarr.com)
-
----
-
-Name: ripemd160
-Version: 2.0.2
-License: MIT
-Private: false
-Description: Compute ripemd160 of bytes or strings.
-Repository: https://github.com/crypto-browserify/ripemd160
 
 ---
 
@@ -313,16 +313,6 @@ Author: Fedor Indutny
 
 ---
 
-Name: minimalistic-assert
-Version: 1.0.1
-License: ISC
-Private: false
-Description: minimalistic-assert ===
-Repository: https://github.com/calvinmetcalf/minimalistic-assert.git
-Homepage: https://github.com/calvinmetcalf/minimalistic-assert
-
----
-
 Name: hash.js
 Version: 1.1.7
 License: MIT
@@ -331,6 +321,16 @@ Description: Various hash functions that could be run by both browser and node
 Repository: git@github.com:indutny/hash.js
 Homepage: https://github.com/indutny/hash.js
 Author: Fedor Indutny <fedor@indutny.com>
+
+---
+
+Name: minimalistic-assert
+Version: 1.0.1
+License: ISC
+Private: false
+Description: minimalistic-assert ===
+Repository: https://github.com/calvinmetcalf/minimalistic-assert.git
+Homepage: https://github.com/calvinmetcalf/minimalistic-assert
 
 ---
 

@@ -7,16 +7,6 @@ Repository: undefined
 
 ---
 
-Name: level-js
-Version: 2.2.4
-License: BSD-2-Clause
-Private: false
-Description: leveldown/leveldb library for browsers using IndexedDB
-Repository: git@github.com:maxogden/level.js.git
-Author: max ogden
-
----
-
 Name: levelup
 Version: 0.18.6
 License: MIT
@@ -38,6 +28,16 @@ Contributors:
   Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)
   Pedro Teixeira <pedro.teixeira@gmail.com> (https://github.com/pgte)
   James Halliday <mail@substack.net> (https://github.com/substack)
+
+---
+
+Name: level-js
+Version: 2.2.4
+License: BSD-2-Clause
+Private: false
+Description: leveldown/leveldb library for browsers using IndexedDB
+Repository: git@github.com:maxogden/level.js.git
+Author: max ogden
 
 ---
 
@@ -116,6 +116,25 @@ Author: Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)
 
 ---
 
+Name: errno
+Version: 0.1.7
+License: MIT
+Private: false
+Description: libuv errno details exposed
+Repository: https://github.com/rvagg/node-errno.git
+
+---
+
+Name: concat-stream
+Version: 1.6.2
+License: MIT
+Private: false
+Description: writable stream that concatenates strings or binary data and calls a callback with the result
+Repository: http://github.com/maxogden/concat-stream.git
+Author: Max Ogden <max@maxogden.com>
+
+---
+
 Name: fwd-stream
 Version: 1.0.4
 License: undefined
@@ -155,55 +174,12 @@ Repository: undefined
 
 ---
 
-Name: errno
-Version: 0.1.7
-License: MIT
-Private: false
-Description: libuv errno details exposed
-Repository: https://github.com/rvagg/node-errno.git
-
----
-
-Name: concat-stream
-Version: 1.6.2
-License: MIT
-Private: false
-Description: writable stream that concatenates strings or binary data and calls a callback with the result
-Repository: http://github.com/maxogden/concat-stream.git
-Author: Max Ogden <max@maxogden.com>
-
----
-
 Name: inherits
 Version: 2.0.3
 License: ISC
 Private: false
 Description: Browser-friendly inheritance fully compatible with standard node.js inherits()
 Repository: undefined
-
----
-
-Name: idb-wrapper
-Version: 1.7.2
-License: MIT
-Private: false
-Description: A cross-browser wrapper for IndexedDB
-Repository: undefined
-Homepage: https://github.com/jensarps/IDBWrapper
-Author: jensarps <mail@jensarps.de> (http://jensarps.de/)
-Contributors:
-  Github Contributors (https://github.com/jensarps/IDBWrapper/graphs/contributors)
-
----
-
-Name: isbuffer
-Version: 0.0.0
-License: MIT
-Private: false
-Description: isBuffer for node and browser (supports typed arrays)
-Repository: git://github.com/juliangruber/isbuffer.git
-Homepage: https://github.com/juliangruber/isbuffer
-Author: Julian Gruber <mail@juliangruber.com> (http://juliangruber.com)
 
 ---
 
@@ -231,6 +207,17 @@ Contributors:
 
 ---
 
+Name: isbuffer
+Version: 0.0.0
+License: MIT
+Private: false
+Description: isBuffer for node and browser (supports typed arrays)
+Repository: git://github.com/juliangruber/isbuffer.git
+Homepage: https://github.com/juliangruber/isbuffer
+Author: Julian Gruber <mail@juliangruber.com> (http://juliangruber.com)
+
+---
+
 Name: typedarray-to-buffer
 Version: 1.0.4
 License: MIT
@@ -239,6 +226,19 @@ Description: Convert a typed array to a Buffer without a copy
 Repository: git://github.com/feross/typedarray-to-buffer.git
 Homepage: http://feross.org
 Author: Feross Aboukhadijeh <feross@feross.org> (http://feross.org/)
+
+---
+
+Name: idb-wrapper
+Version: 1.7.2
+License: MIT
+Private: false
+Description: A cross-browser wrapper for IndexedDB
+Repository: undefined
+Homepage: https://github.com/jensarps/IDBWrapper
+Author: jensarps <mail@jensarps.de> (http://jensarps.de/)
+Contributors:
+  Github Contributors (https://github.com/jensarps/IDBWrapper/graphs/contributors)
 
 ---
 
@@ -318,6 +318,14 @@ Author: James Halliday <mail@substack.net> (http://substack.net)
 
 ---
 
+Name: buffer-from
+Version: 1.1.1
+License: MIT
+Private: false
+Repository: undefined
+
+---
+
 Name: level-fix-range
 Version: 2.0.0
 License: MIT
@@ -326,14 +334,6 @@ Description: make using levelup reverse ranges easy
 Repository: git://github.com/dominictarr/level-fix-range.git
 Homepage: https://github.com/dominictarr/level-fix-range
 Author: Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)
-
----
-
-Name: buffer-from
-Version: 1.1.1
-License: MIT
-Private: false
-Repository: undefined
 
 ---
 
@@ -390,17 +390,6 @@ Author: Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)
 
 ---
 
-Name: string-range
-Version: 1.2.2
-License: MIT
-Private: false
-Description: check if a string is within a range
-Repository: git://github.com/dominictarr/string-range.git
-Homepage: https://github.com/dominictarr/string-range
-Author: Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)
-
----
-
 Name: process-nextick-args
 Version: 2.0.0
 License: MIT
@@ -419,6 +408,17 @@ Description: The Node.js `util.deprecate()` function with browser support
 Repository: git://github.com/TooTallNate/util-deprecate.git
 Homepage: https://github.com/TooTallNate/util-deprecate
 Author: Nathan Rajlich <nathan@tootallnate.net> (http://n8.io/)
+
+---
+
+Name: string-range
+Version: 1.2.2
+License: MIT
+Private: false
+Description: check if a string is within a range
+Repository: git://github.com/dominictarr/string-range.git
+Homepage: https://github.com/dominictarr/string-range
+Author: Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)
 
 ---
 
@@ -447,19 +447,6 @@ Contributors:
 
 ---
 
-Name: is
-Version: 0.2.7
-License: undefined
-Private: false
-Description: the definitive JavaScript type testing library
-Repository: git://github.com/enricomarino/is.git
-Homepage: https://github.com/enricomarino/is
-Author: Enrico Marino (http://onirame.com)
-Contributors:
-  Jordan Harband (https://github.com/ljharb)
-
----
-
 Name: foreach
 Version: 2.0.5
 License: MIT
@@ -469,4 +456,17 @@ Repository: git://github.com/manuelstofer/foreach
 Author: Manuel Stofer <manuel@takimata.ch>
 Contributors:
   Manuel Stofer
+  Jordan Harband (https://github.com/ljharb)
+
+---
+
+Name: is
+Version: 0.2.7
+License: undefined
+Private: false
+Description: the definitive JavaScript type testing library
+Repository: git://github.com/enricomarino/is.git
+Homepage: https://github.com/enricomarino/is
+Author: Enrico Marino (http://onirame.com)
+Contributors:
   Jordan Harband (https://github.com/ljharb)
