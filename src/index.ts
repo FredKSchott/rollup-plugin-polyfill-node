@@ -6,7 +6,7 @@ import { randomBytes } from 'crypto';
 
 export default function (opts: NodePolyfillsOptions = {}) {
   const injectPlugin = inject({
-    include: opts.include,
+    include: opts.include === undefined ? 'node_modules/**/*.js' : undefined,
     exclude: opts.exclude,
     sourceMap: opts.sourceMap,
     modules: {
