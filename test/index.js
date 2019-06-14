@@ -25,7 +25,9 @@ describe('rollup-plugin-node-polyfills', () => {
       rollup.rollup({
         input: 'test/examples/' + file,
         plugins: [
-          nodePolyfills()
+          nodePolyfills({
+            include: null
+          })
         ]
       })
       .then(bundle => bundle.generate({format: 'cjs'}))
@@ -52,6 +54,7 @@ describe('rollup-plugin-node-polyfills', () => {
       entry: 'test/examples/crypto.js',
       plugins: [
         nodePolyfills({
+          include: null,
           crypto: true
         })
       ]
