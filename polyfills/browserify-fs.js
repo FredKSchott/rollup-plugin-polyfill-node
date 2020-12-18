@@ -1,4 +1,4 @@
-import util$2 from 'util';
+import util$7 from 'util';
 import buffer from 'buffer';
 import events from 'events';
 import stream from 'stream';
@@ -28,7 +28,7 @@ var idbstore = createCommonjsModule(function (module) {
 
 (function (name, definition, global) {
 
-    if (module.exports) {
+    if ( module.exports) {
         module.exports = definition();
     } else {
         global[name] = definition();
@@ -2035,7 +2035,7 @@ function Iterator (db, options) {
   this.callback = null;
 }
 
-util$2.inherits(Iterator, AbstractIterator$1);
+util$7.inherits(Iterator, AbstractIterator$1);
 
 Iterator.prototype.createIterator = function() {
   var self = this;
@@ -2275,7 +2275,7 @@ function Level(location) {
   this.location = location;
 }
 
-util$2.inherits(Level, AbstractLevelDOWN$1);
+util$7.inherits(Level, AbstractLevelDOWN$1);
 
 Level.prototype._open = function(options, callback) {
   var self = this;
@@ -2459,7 +2459,7 @@ var prr = createCommonjsModule(function (module) {
   */
 
 (function (name, context, definition) {
-  if (module.exports)
+  if ( module.exports)
     module.exports = definition();
   else
     context[name] = definition();
@@ -2524,7 +2524,7 @@ function DeferredLevelDOWN (location) {
   this._operations = [];
 }
 
-util$2.inherits(DeferredLevelDOWN, AbstractLevelDOWN$2);
+util$7.inherits(DeferredLevelDOWN, AbstractLevelDOWN$2);
 
 // called by LevelUP when we have a real DB to take its place
 DeferredLevelDOWN.prototype.setDb = function (db) {
@@ -2572,7 +2572,7 @@ var prr$1 = createCommonjsModule(function (module) {
   */
 
 (function (name, context, definition) {
-  if (module.exports)
+  if ( module.exports)
     module.exports = definition();
   else
     context[name] = definition();
@@ -3163,24 +3163,28 @@ var inherits_browser = createCommonjsModule(function (module) {
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor;
-    ctor.prototype = Object.create(superCtor.prototype, {
-      constructor: {
-        value: ctor,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
+    if (superCtor) {
+      ctor.super_ = superCtor;
+      ctor.prototype = Object.create(superCtor.prototype, {
+        constructor: {
+          value: ctor,
+          enumerable: false,
+          writable: true,
+          configurable: true
+        }
+      });
+    }
   };
 } else {
   // old school shim for old browsers
   module.exports = function inherits(ctor, superCtor) {
-    ctor.super_ = superCtor;
-    var TempCtor = function () {};
-    TempCtor.prototype = superCtor.prototype;
-    ctor.prototype = new TempCtor();
-    ctor.prototype.constructor = ctor;
+    if (superCtor) {
+      ctor.super_ = superCtor;
+      var TempCtor = function () {};
+      TempCtor.prototype = superCtor.prototype;
+      ctor.prototype = new TempCtor();
+      ctor.prototype.constructor = ctor;
+    }
   };
 }
 });
@@ -5147,27 +5151,136 @@ var readable_4 = readable.Duplex;
 var readable_5 = readable.Transform;
 var readable_6 = readable.PassThrough;
 
-var name = "levelup";
-var description = "Fast & simple storage - a Node.js-style LevelDB wrapper";
-var version = "0.18.6";
-var contributors = [
-	"Rod Vagg <r@va.gg> (https://github.com/rvagg)",
-	"John Chesley <john@chesl.es> (https://github.com/chesles/)",
-	"Jake Verbaten <raynos2@gmail.com> (https://github.com/raynos)",
-	"Dominic Tarr <dominic.tarr@gmail.com> (https://github.com/dominictarr)",
-	"Max Ogden <max@maxogden.com> (https://github.com/maxogden)",
-	"Lars-Magnus Skog <lars.magnus.skog@gmail.com> (https://github.com/ralphtheninja)",
-	"David Björklund <david.bjorklund@gmail.com> (https://github.com/kesla)",
-	"Julian Gruber <julian@juliangruber.com> (https://github.com/juliangruber)",
-	"Paolo Fragomeni <paolo@async.ly> (https://github.com/hij1nx)",
-	"Anton Whalley <anton.whalley@nearform.com> (https://github.com/No9)",
-	"Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
-	"Pedro Teixeira <pedro.teixeira@gmail.com> (https://github.com/pgte)",
-	"James Halliday <mail@substack.net> (https://github.com/substack)"
+var _from = "levelup@^0.18.2";
+var _id = "levelup@0.18.6";
+var _inBundle = false;
+var _integrity = "sha1-5qAcsIlhbI7MApHCqb0/DETj5es=";
+var _location = "/levelup";
+var _phantomChildren = {
+	"core-util-is": "1.0.2",
+	inherits: "2.0.4"
+};
+var _requested = {
+	type: "range",
+	registry: true,
+	raw: "levelup@^0.18.2",
+	name: "levelup",
+	escapedName: "levelup",
+	rawSpec: "^0.18.2",
+	saveSpec: null,
+	fetchSpec: "^0.18.2"
+};
+var _requiredBy = [
+	"/browserify-fs"
 ];
-var repository = {
-	type: "git",
-	url: "https://github.com/rvagg/node-levelup.git"
+var _resolved = "https://registry.npmjs.org/levelup/-/levelup-0.18.6.tgz";
+var _shasum = "e6a01cb089616c8ecc0291c2a9bd3f0c44e3e5eb";
+var _spec = "levelup@^0.18.2";
+var _where = "/home/codespace/workspace/rollup-plugin-node-polyfills/node_modules/browserify-fs";
+var browser = {
+	leveldown: false,
+	"leveldown/package": false,
+	semver: false
+};
+var bugs = {
+	url: "https://github.com/rvagg/node-levelup/issues"
+};
+var bundleDependencies = false;
+var contributors = [
+	{
+		name: "Rod Vagg",
+		email: "r@va.gg",
+		url: "https://github.com/rvagg"
+	},
+	{
+		name: "John Chesley",
+		email: "john@chesl.es",
+		url: "https://github.com/chesles/"
+	},
+	{
+		name: "Jake Verbaten",
+		email: "raynos2@gmail.com",
+		url: "https://github.com/raynos"
+	},
+	{
+		name: "Dominic Tarr",
+		email: "dominic.tarr@gmail.com",
+		url: "https://github.com/dominictarr"
+	},
+	{
+		name: "Max Ogden",
+		email: "max@maxogden.com",
+		url: "https://github.com/maxogden"
+	},
+	{
+		name: "Lars-Magnus Skog",
+		email: "lars.magnus.skog@gmail.com",
+		url: "https://github.com/ralphtheninja"
+	},
+	{
+		name: "David Björklund",
+		email: "david.bjorklund@gmail.com",
+		url: "https://github.com/kesla"
+	},
+	{
+		name: "Julian Gruber",
+		email: "julian@juliangruber.com",
+		url: "https://github.com/juliangruber"
+	},
+	{
+		name: "Paolo Fragomeni",
+		email: "paolo@async.ly",
+		url: "https://github.com/hij1nx"
+	},
+	{
+		name: "Anton Whalley",
+		email: "anton.whalley@nearform.com",
+		url: "https://github.com/No9"
+	},
+	{
+		name: "Matteo Collina",
+		email: "matteo.collina@gmail.com",
+		url: "https://github.com/mcollina"
+	},
+	{
+		name: "Pedro Teixeira",
+		email: "pedro.teixeira@gmail.com",
+		url: "https://github.com/pgte"
+	},
+	{
+		name: "James Halliday",
+		email: "mail@substack.net",
+		url: "https://github.com/substack"
+	}
+];
+var dependencies = {
+	bl: "~0.8.1",
+	"deferred-leveldown": "~0.2.0",
+	errno: "~0.1.1",
+	prr: "~0.0.0",
+	"readable-stream": "~1.0.26",
+	semver: "~2.3.1",
+	xtend: "~3.0.0"
+};
+var deprecated = false;
+var description = "Fast & simple storage - a Node.js-style LevelDB wrapper";
+var devDependencies = {
+	async: "*",
+	boganipsum: "*",
+	bustermove: "*",
+	delayed: "*",
+	du: "*",
+	fstream: "*",
+	leveldown: "~0.10.0",
+	memdown: "*",
+	mkfiletree: "*",
+	"msgpack-js": "*",
+	readfiletree: "*",
+	referee: "*",
+	rimraf: "*",
+	"slow-stream": ">=0.0.4",
+	tap: "*",
+	tar: "*"
 };
 var homepage = "https://github.com/rvagg/node-levelup";
 var keywords = [
@@ -5179,90 +5292,93 @@ var keywords = [
 	"storage",
 	"json"
 ];
+var license = "MIT";
 var main = "lib/levelup.js";
-var dependencies = {
-	bl: "~0.8.1",
-	"deferred-leveldown": "~0.2.0",
-	errno: "~0.1.1",
-	prr: "~0.0.0",
-	"readable-stream": "~1.0.26",
-	semver: "~2.3.1",
-	xtend: "~3.0.0"
-};
-var devDependencies = {
-	leveldown: "~0.10.0",
-	bustermove: "*",
-	tap: "*",
-	referee: "*",
-	rimraf: "*",
-	async: "*",
-	fstream: "*",
-	tar: "*",
-	mkfiletree: "*",
-	readfiletree: "*",
-	"slow-stream": ">=0.0.4",
-	delayed: "*",
-	boganipsum: "*",
-	du: "*",
-	memdown: "*",
-	"msgpack-js": "*"
-};
-var browser = {
-	leveldown: false,
-	"leveldown/package": false,
-	semver: false
+var name = "levelup";
+var repository = {
+	type: "git",
+	url: "git+https://github.com/rvagg/node-levelup.git"
 };
 var scripts = {
-	test: "tap test/*-test.js --stderr",
+	alltests: "npm test && npm run-script functionaltests",
 	functionaltests: "node ./test/functional/fstream-test.js && node ./test/functional/binary-data-test.js && node ./test/functional/compat-test.js",
-	alltests: "npm test && npm run-script functionaltests"
+	test: "tap test/*-test.js --stderr"
 };
-var license = "MIT";
-var _resolved = "https://registry.npmjs.org/levelup/-/levelup-0.18.6.tgz";
-var _integrity = "sha1-5qAcsIlhbI7MApHCqb0/DETj5es=";
-var _from = "levelup@0.18.6";
+var version = "0.18.6";
 var _package = {
-	name: name,
-	description: description,
-	version: version,
+	_from: _from,
+	_id: _id,
+	_inBundle: _inBundle,
+	_integrity: _integrity,
+	_location: _location,
+	_phantomChildren: _phantomChildren,
+	_requested: _requested,
+	_requiredBy: _requiredBy,
+	_resolved: _resolved,
+	_shasum: _shasum,
+	_spec: _spec,
+	_where: _where,
+	browser: browser,
+	bugs: bugs,
+	bundleDependencies: bundleDependencies,
 	contributors: contributors,
-	repository: repository,
+	dependencies: dependencies,
+	deprecated: deprecated,
+	description: description,
+	devDependencies: devDependencies,
 	homepage: homepage,
 	keywords: keywords,
-	main: main,
-	dependencies: dependencies,
-	devDependencies: devDependencies,
-	browser: browser,
-	scripts: scripts,
 	license: license,
-	_resolved: _resolved,
-	_integrity: _integrity,
-	_from: _from
+	main: main,
+	name: name,
+	repository: repository,
+	scripts: scripts,
+	version: version
 };
 
 var _package$1 = /*#__PURE__*/Object.freeze({
-	name: name,
-	description: description,
-	version: version,
+	__proto__: null,
+	_from: _from,
+	_id: _id,
+	_inBundle: _inBundle,
+	_integrity: _integrity,
+	_location: _location,
+	_phantomChildren: _phantomChildren,
+	_requested: _requested,
+	_requiredBy: _requiredBy,
+	_resolved: _resolved,
+	_shasum: _shasum,
+	_spec: _spec,
+	_where: _where,
+	browser: browser,
+	bugs: bugs,
+	bundleDependencies: bundleDependencies,
 	contributors: contributors,
-	repository: repository,
+	dependencies: dependencies,
+	deprecated: deprecated,
+	description: description,
+	devDependencies: devDependencies,
 	homepage: homepage,
 	keywords: keywords,
-	main: main,
-	dependencies: dependencies,
-	devDependencies: devDependencies,
-	browser: browser,
-	scripts: scripts,
 	license: license,
-	_resolved: _resolved,
-	_integrity: _integrity,
-	_from: _from,
+	main: main,
+	name: name,
+	repository: repository,
+	scripts: scripts,
+	version: version,
 	'default': _package
 });
 
-var require$$4 = {};
+var _nodeResolve_empty = {};
+
+var _nodeResolve_empty$1 = /*#__PURE__*/Object.freeze({
+	__proto__: null,
+	'default': _nodeResolve_empty
+});
 
 var require$$1 = getCjsExportFromNamespace(_package$1);
+
+var require$$4 = getCjsExportFromNamespace(_nodeResolve_empty$1);
 
 /* Copyright (c) 2012-2014 LevelUP contributors
  * See list at <https://github.com/rvagg/node-levelup#contributing>
@@ -5454,7 +5570,7 @@ var util$1 = {
 // NOTE: we are fixed to readable-stream@1.0.x for now
 // for pure Streams2 across Node versions
 var Readable$1      = readable.Readable
-  , inherits      = util$2.inherits
+  , inherits      = util$7.inherits
   , EncodingError = errors.EncodingError
 
   , defaultOptions$1 = { keys: true, values: true }
@@ -7574,7 +7690,7 @@ function BufferList (callback) {
   DuplexStream.call(this);
 }
 
-util$2.inherits(BufferList, DuplexStream);
+util$7.inherits(BufferList, DuplexStream);
 
 BufferList.prototype._offset = function (offset) {
   var tot = 0, i = 0, _t;
@@ -7757,7 +7873,7 @@ var bl = BufferList;
  */
 
 var Stream       = stream.Stream
-  , inherits$1     = util$2.inherits
+  , inherits$1     = util$7.inherits
 
   , setImmediate$1 = commonjsGlobal.setImmediate || process.nextTick
 
@@ -8012,7 +8128,7 @@ var batch = Batch;
  */
 
 var EventEmitter   = events.EventEmitter
-  , inherits$2       = util$2.inherits
+  , inherits$2       = util$7.inherits
 
   , WriteError$1     = errors.WriteError
   , ReadError      = errors.ReadError
@@ -11654,7 +11770,7 @@ var batch$1 = Batch$1;
 
 var sub = createCommonjsModule(function (module) {
 var EventEmitter = events.EventEmitter;
-var inherits     = util$2.inherits;
+var inherits     = util$7.inherits;
 
 
 
@@ -12470,7 +12586,7 @@ var StringDecoder$3;
 
 
 /*<replacement>*/
-var debug = util$2;
+var debug = util$7;
 if (debug && debug.debuglog) {
   debug = debug.debuglog('stream');
 } else {
@@ -14473,7 +14589,7 @@ var levelBlobs = function(db, opts) {
 		writable$1.call(this);
 	};
 
-	util$2.inherits(WriteStream, writable$1);
+	util$7.inherits(WriteStream, writable$1);
 
 	WriteStream.prototype._init = function(start) {
 		this.blockIndex = (start / blockSize) | 0;
@@ -14676,7 +14792,7 @@ var levelBlobs = function(db, opts) {
 		readable$3.call(this);
 	};
 
-	util$2.inherits(ReadStream, readable$3);
+	util$7.inherits(ReadStream, readable$3);
 
 	ReadStream.prototype.destroy = function() {
 		if (this._destroyed) return;
@@ -14793,7 +14909,8 @@ Object.keys(errno.code).forEach(function(code) {
 
 var processNextickArgs = createCommonjsModule(function (module) {
 
-if (!process.version ||
+if (typeof process === 'undefined' ||
+    !process.version ||
     process.version.indexOf('v0.') === 0 ||
     process.version.indexOf('v1.') === 0 && process.version.indexOf('v1.8.') !== 0) {
   module.exports = { nextTick: nextTick };
@@ -14984,9 +15101,9 @@ module.exports = function () {
   return BufferList;
 }();
 
-if (util$2 && util$2.inspect && util$2.inspect.custom) {
-  module.exports.prototype[util$2.inspect.custom] = function () {
-    var obj = util$2.inspect({ length: this.length });
+if (util$7 && util$7.inspect && util$7.inspect.custom) {
+  module.exports.prototype[util$7.inspect.custom] = function () {
+    var obj = util$7.inspect({ length: this.length });
     return this.constructor.name + ' ' + obj;
   };
 }
@@ -15163,8 +15280,8 @@ var Duplex$4;
 Writable$4.WritableState = WritableState$4;
 
 /*<replacement>*/
-
-util.inherits = inherits_browser;
+var util$2 = Object.create(util);
+util$2.inherits = inherits_browser;
 /*</replacement>*/
 
 /*<replacement>*/
@@ -15192,7 +15309,7 @@ function _isUint8Array(obj) {
 
 
 
-util.inherits(Writable$4, streamBrowser);
+util$2.inherits(Writable$4, streamBrowser);
 
 function nop() {}
 
@@ -15802,14 +15919,14 @@ var objectKeys$6 = Object.keys || function (obj) {
 var _stream_duplex$4 = Duplex$5;
 
 /*<replacement>*/
-
-util.inherits = inherits_browser;
+var util$3 = Object.create(util);
+util$3.inherits = inherits_browser;
 /*</replacement>*/
 
 
 
 
-util.inherits(Duplex$5, _stream_readable$4);
+util$3.inherits(Duplex$5, _stream_readable$4);
 
 {
   // avoid scope creep, the keys array can then be collected
@@ -16209,15 +16326,15 @@ function _isUint8Array$1(obj) {
 /*</replacement>*/
 
 /*<replacement>*/
-
-util.inherits = inherits_browser;
+var util$4 = Object.create(util);
+util$4.inherits = inherits_browser;
 /*</replacement>*/
 
 /*<replacement>*/
 
 var debug$1 = void 0;
-if (util$2 && util$2.debuglog) {
-  debug$1 = util$2.debuglog('stream');
+if (util$7 && util$7.debuglog) {
+  debug$1 = util$7.debuglog('stream');
 } else {
   debug$1 = function () {};
 }
@@ -16227,7 +16344,7 @@ if (util$2 && util$2.debuglog) {
 
 var StringDecoder$5;
 
-util.inherits(Readable$5, streamBrowser);
+util$4.inherits(Readable$5, streamBrowser);
 
 var kProxyEvents = ['error', 'close', 'destroy', 'pause', 'resume'];
 
@@ -17168,11 +17285,11 @@ var _stream_transform$4 = Transform$4;
 
 
 /*<replacement>*/
-
-util.inherits = inherits_browser;
+var util$5 = Object.create(util);
+util$5.inherits = inherits_browser;
 /*</replacement>*/
 
-util.inherits(Transform$4, _stream_duplex$4);
+util$5.inherits(Transform$4, _stream_duplex$4);
 
 function afterTransform$4(er, data) {
   var ts = this._transformState;
@@ -17318,11 +17435,11 @@ var _stream_passthrough$4 = PassThrough$4;
 
 
 /*<replacement>*/
-
-util.inherits = inherits_browser;
+var util$6 = Object.create(util);
+util$6.inherits = inherits_browser;
 /*</replacement>*/
 
-util.inherits(PassThrough$4, _stream_transform$4);
+util$6.inherits(PassThrough$4, _stream_transform$4);
 
 function PassThrough$4(options) {
   if (!(this instanceof PassThrough$4)) return new PassThrough$4(options);

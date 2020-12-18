@@ -1,5 +1,5 @@
 // @ts-ignore
-import inject from 'rollup-plugin-inject';
+import inject from '@rollup/plugin-inject';
 import { builtinsResolver, NodePolyfillsOptions } from './modules';
 import { dirname, relative } from 'path';
 import { randomBytes } from 'crypto';
