@@ -1,8 +1,8 @@
 const rollup = require('rollup');
 const path = require('path');
-const {nodeResolve} = require('@rollup/plugin-node-resolve');
-const commonjs = require('@rollup/plugin-commonjs');
-const json = require('@rollup/plugin-json');
+const nodeResolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
+const json = require('rollup-plugin-json');
 const license = require('rollup-plugin-license');
 
 async function main() {
