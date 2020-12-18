@@ -1,8 +1,12 @@
-rollup-plugin-node-polyfills
+rollup-plugin-polyfill-node
 ===
 
+> This repo is a fork of https://github.com/ionic-team/rollup-plugin-node-polyfills to support better Node.js polyfills in Snowpack and all other Rollup projects. See this thread for discussion on moving this plugin into the official Rollup org: https://github.com/rollup/plugins/pull/51#issuecomment-747489334
+
+> Not yet released, the following npm install command doesn't work yet.
+
 ```
-npm install --save-dev rollup-plugin-node-polyfills
+npm install --save-dev rollup-plugin-polyfill-node
 ```
 
 Allows the node builtins to be `require`d/`import`ed.
