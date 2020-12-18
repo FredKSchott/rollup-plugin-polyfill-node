@@ -5176,7 +5176,7 @@ var _requiredBy = [
 var _resolved = "https://registry.npmjs.org/levelup/-/levelup-0.18.6.tgz";
 var _shasum = "e6a01cb089616c8ecc0291c2a9bd3f0c44e3e5eb";
 var _spec = "levelup@^0.18.2";
-var _where = "/rollup-plugin-node-polyfills/node_modules/browserify-fs";
+var _where = "/Users/fks/Code/test/new-dir9/rollup-plugin-node-polyfills/node_modules/browserify-fs";
 var browser = {
 	leveldown: false,
 	"leveldown/package": false,
