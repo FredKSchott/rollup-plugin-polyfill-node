@@ -1,86 +1,85 @@
 export var RTLD_LAZY = 1;
 export var RTLD_NOW = 2;
-export var RTLD_GLOBAL = 256;
-export var RTLD_LOCAL = 0;
-export var RTLD_DEEPBIND = 8;
+export var RTLD_GLOBAL = 8;
+export var RTLD_LOCAL = 4;
 export var E2BIG = 7;
 export var EACCES = 13;
-export var EADDRINUSE = 98;
-export var EADDRNOTAVAIL = 99;
-export var EAFNOSUPPORT = 97;
-export var EAGAIN = 11;
-export var EALREADY = 114;
+export var EADDRINUSE = 48;
+export var EADDRNOTAVAIL = 49;
+export var EAFNOSUPPORT = 47;
+export var EAGAIN = 35;
+export var EALREADY = 37;
 export var EBADF = 9;
-export var EBADMSG = 74;
+export var EBADMSG = 94;
 export var EBUSY = 16;
-export var ECANCELED = 125;
+export var ECANCELED = 89;
 export var ECHILD = 10;
-export var ECONNABORTED = 103;
-export var ECONNREFUSED = 111;
-export var ECONNRESET = 104;
-export var EDEADLK = 35;
-export var EDESTADDRREQ = 89;
+export var ECONNABORTED = 53;
+export var ECONNREFUSED = 61;
+export var ECONNRESET = 54;
+export var EDEADLK = 11;
+export var EDESTADDRREQ = 39;
 export var EDOM = 33;
-export var EDQUOT = 122;
+export var EDQUOT = 69;
 export var EEXIST = 17;
 export var EFAULT = 14;
 export var EFBIG = 27;
-export var EHOSTUNREACH = 113;
-export var EIDRM = 43;
-export var EILSEQ = 84;
-export var EINPROGRESS = 115;
+export var EHOSTUNREACH = 65;
+export var EIDRM = 90;
+export var EILSEQ = 92;
+export var EINPROGRESS = 36;
 export var EINTR = 4;
 export var EINVAL = 22;
 export var EIO = 5;
-export var EISCONN = 106;
+export var EISCONN = 56;
 export var EISDIR = 21;
-export var ELOOP = 40;
+export var ELOOP = 62;
 export var EMFILE = 24;
 export var EMLINK = 31;
-export var EMSGSIZE = 90;
-export var EMULTIHOP = 72;
-export var ENAMETOOLONG = 36;
-export var ENETDOWN = 100;
-export var ENETRESET = 102;
-export var ENETUNREACH = 101;
+export var EMSGSIZE = 40;
+export var EMULTIHOP = 95;
+export var ENAMETOOLONG = 63;
+export var ENETDOWN = 50;
+export var ENETRESET = 52;
+export var ENETUNREACH = 51;
 export var ENFILE = 23;
-export var ENOBUFS = 105;
-export var ENODATA = 61;
+export var ENOBUFS = 55;
+export var ENODATA = 96;
 export var ENODEV = 19;
 export var ENOENT = 2;
 export var ENOEXEC = 8;
-export var ENOLCK = 37;
-export var ENOLINK = 67;
+export var ENOLCK = 77;
+export var ENOLINK = 97;
 export var ENOMEM = 12;
-export var ENOMSG = 42;
-export var ENOPROTOOPT = 92;
+export var ENOMSG = 91;
+export var ENOPROTOOPT = 42;
 export var ENOSPC = 28;
-export var ENOSR = 63;
-export var ENOSTR = 60;
-export var ENOSYS = 38;
-export var ENOTCONN = 107;
+export var ENOSR = 98;
+export var ENOSTR = 99;
+export var ENOSYS = 78;
+export var ENOTCONN = 57;
 export var ENOTDIR = 20;
-export var ENOTEMPTY = 39;
-export var ENOTSOCK = 88;
-export var ENOTSUP = 95;
+export var ENOTEMPTY = 66;
+export var ENOTSOCK = 38;
+export var ENOTSUP = 45;
 export var ENOTTY = 25;
 export var ENXIO = 6;
-export var EOPNOTSUPP = 95;
-export var EOVERFLOW = 75;
+export var EOPNOTSUPP = 102;
+export var EOVERFLOW = 84;
 export var EPERM = 1;
 export var EPIPE = 32;
-export var EPROTO = 71;
-export var EPROTONOSUPPORT = 93;
-export var EPROTOTYPE = 91;
+export var EPROTO = 100;
+export var EPROTONOSUPPORT = 43;
+export var EPROTOTYPE = 41;
 export var ERANGE = 34;
 export var EROFS = 30;
 export var ESPIPE = 29;
 export var ESRCH = 3;
-export var ESTALE = 116;
-export var ETIME = 62;
-export var ETIMEDOUT = 110;
+export var ESTALE = 70;
+export var ETIME = 101;
+export var ETIMEDOUT = 60;
 export var ETXTBSY = 26;
-export var EWOULDBLOCK = 11;
+export var EWOULDBLOCK = 35;
 export var EXDEV = 18;
 export var PRIORITY_LOW = 19;
 export var PRIORITY_BELOW_NORMAL = 10;
@@ -95,33 +94,30 @@ export var SIGILL = 4;
 export var SIGTRAP = 5;
 export var SIGABRT = 6;
 export var SIGIOT = 6;
-export var SIGBUS = 7;
+export var SIGBUS = 10;
 export var SIGFPE = 8;
 export var SIGKILL = 9;
-export var SIGUSR1 = 10;
+export var SIGUSR1 = 30;
 export var SIGSEGV = 11;
-export var SIGUSR2 = 12;
+export var SIGUSR2 = 31;
 export var SIGPIPE = 13;
 export var SIGALRM = 14;
 export var SIGTERM = 15;
-export var SIGCHLD = 17;
-export var SIGSTKFLT = 16;
-export var SIGCONT = 18;
-export var SIGSTOP = 19;
-export var SIGTSTP = 20;
+export var SIGCHLD = 20;
+export var SIGCONT = 19;
+export var SIGSTOP = 17;
+export var SIGTSTP = 18;
 export var SIGTTIN = 21;
 export var SIGTTOU = 22;
-export var SIGURG = 23;
+export var SIGURG = 16;
 export var SIGXCPU = 24;
 export var SIGXFSZ = 25;
 export var SIGVTALRM = 26;
 export var SIGPROF = 27;
 export var SIGWINCH = 28;
-export var SIGIO = 29;
-export var SIGPOLL = 29;
-export var SIGPWR = 30;
-export var SIGSYS = 31;
-export var SIGUNUSED = 31;
+export var SIGIO = 23;
+export var SIGINFO = 29;
+export var SIGSYS = 12;
 export var UV_FS_SYMLINK_DIR = 1;
 export var UV_FS_SYMLINK_JUNCTION = 2;
 export var O_RDONLY = 0;
@@ -143,19 +139,18 @@ export var S_IFBLK = 24576;
 export var S_IFIFO = 4096;
 export var S_IFLNK = 40960;
 export var S_IFSOCK = 49152;
-export var O_CREAT = 64;
-export var O_EXCL = 128;
+export var O_CREAT = 512;
+export var O_EXCL = 2048;
 export var UV_FS_O_FILEMAP = 0;
-export var O_NOCTTY = 256;
-export var O_TRUNC = 512;
-export var O_APPEND = 1024;
-export var O_DIRECTORY = 65536;
-export var O_NOATIME = 262144;
-export var O_NOFOLLOW = 131072;
-export var O_SYNC = 1052672;
-export var O_DSYNC = 4096;
-export var O_DIRECT = 16384;
-export var O_NONBLOCK = 2048;
+export var O_NOCTTY = 131072;
+export var O_TRUNC = 1024;
+export var O_APPEND = 8;
+export var O_DIRECTORY = 1048576;
+export var O_NOFOLLOW = 256;
+export var O_SYNC = 128;
+export var O_DSYNC = 4194304;
+export var O_SYMLINK = 2097152;
+export var O_NONBLOCK = 4;
 export var S_IRWXU = 448;
 export var S_IRUSR = 256;
 export var S_IWUSR = 128;
@@ -180,7 +175,6 @@ export var UV_FS_COPYFILE_FICLONE_FORCE = 4;
 export var COPYFILE_FICLONE_FORCE = 4;
 export var OPENSSL_VERSION_NUMBER = 269488255;
 export var SSL_OP_ALL = 2147485780;
-export var SSL_OP_ALLOW_NO_DHE_KEX = 1024;
 export var SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION = 262144;
 export var SSL_OP_CIPHER_SERVER_PREFERENCE = 4194304;
 export var SSL_OP_CISCO_ANYCONNECT = 32768;
@@ -197,9 +191,7 @@ export var SSL_OP_NETSCAPE_CHALLENGE_BUG = 0;
 export var SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG = 0;
 export var SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG = 0;
 export var SSL_OP_NO_COMPRESSION = 131072;
-export var SSL_OP_NO_ENCRYPT_THEN_MAC = 524288;
 export var SSL_OP_NO_QUERY_MTU = 4096;
-export var SSL_OP_NO_RENEGOTIATION = 1073741824;
 export var SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION = 65536;
 export var SSL_OP_NO_SSLv2 = 0;
 export var SSL_OP_NO_SSLv3 = 33554432;
@@ -207,10 +199,8 @@ export var SSL_OP_NO_TICKET = 16384;
 export var SSL_OP_NO_TLSv1 = 67108864;
 export var SSL_OP_NO_TLSv1_1 = 268435456;
 export var SSL_OP_NO_TLSv1_2 = 134217728;
-export var SSL_OP_NO_TLSv1_3 = 536870912;
 export var SSL_OP_PKCS1_CHECK_1 = 0;
 export var SSL_OP_PKCS1_CHECK_2 = 0;
-export var SSL_OP_PRIORITIZE_CHACHA = 2097152;
 export var SSL_OP_SINGLE_DH_USE = 0;
 export var SSL_OP_SINGLE_ECDH_USE = 0;
 export var SSL_OP_SSLEAY_080_CLIENT_DH_BUG = 0;
@@ -256,7 +246,6 @@ export default {
   RTLD_NOW: RTLD_NOW,
   RTLD_GLOBAL: RTLD_GLOBAL,
   RTLD_LOCAL: RTLD_LOCAL,
-  RTLD_DEEPBIND: RTLD_DEEPBIND,
   E2BIG: E2BIG,
   EACCES: EACCES,
   EADDRINUSE: EADDRINUSE,
@@ -359,7 +348,6 @@ export default {
   SIGALRM: SIGALRM,
   SIGTERM: SIGTERM,
   SIGCHLD: SIGCHLD,
-  SIGSTKFLT: SIGSTKFLT,
   SIGCONT: SIGCONT,
   SIGSTOP: SIGSTOP,
   SIGTSTP: SIGTSTP,
@@ -372,10 +360,8 @@ export default {
   SIGPROF: SIGPROF,
   SIGWINCH: SIGWINCH,
   SIGIO: SIGIO,
-  SIGPOLL: SIGPOLL,
-  SIGPWR: SIGPWR,
+  SIGINFO: SIGINFO,
   SIGSYS: SIGSYS,
-  SIGUNUSED: SIGUNUSED,
   UV_FS_SYMLINK_DIR: UV_FS_SYMLINK_DIR,
   UV_FS_SYMLINK_JUNCTION: UV_FS_SYMLINK_JUNCTION,
   O_RDONLY: O_RDONLY,
@@ -404,11 +390,10 @@ export default {
   O_TRUNC: O_TRUNC,
   O_APPEND: O_APPEND,
   O_DIRECTORY: O_DIRECTORY,
-  O_NOATIME: O_NOATIME,
   O_NOFOLLOW: O_NOFOLLOW,
   O_SYNC: O_SYNC,
   O_DSYNC: O_DSYNC,
-  O_DIRECT: O_DIRECT,
+  O_SYMLINK: O_SYMLINK,
   O_NONBLOCK: O_NONBLOCK,
   S_IRWXU: S_IRWXU,
   S_IRUSR: S_IRUSR,
@@ -434,7 +419,6 @@ export default {
   COPYFILE_FICLONE_FORCE: COPYFILE_FICLONE_FORCE,
   OPENSSL_VERSION_NUMBER: OPENSSL_VERSION_NUMBER,
   SSL_OP_ALL: SSL_OP_ALL,
-  SSL_OP_ALLOW_NO_DHE_KEX: SSL_OP_ALLOW_NO_DHE_KEX,
   SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION: SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION,
   SSL_OP_CIPHER_SERVER_PREFERENCE: SSL_OP_CIPHER_SERVER_PREFERENCE,
   SSL_OP_CISCO_ANYCONNECT: SSL_OP_CISCO_ANYCONNECT,
@@ -451,9 +435,7 @@ export default {
   SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG: SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG,
   SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG: SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG,
   SSL_OP_NO_COMPRESSION: SSL_OP_NO_COMPRESSION,
-  SSL_OP_NO_ENCRYPT_THEN_MAC: SSL_OP_NO_ENCRYPT_THEN_MAC,
   SSL_OP_NO_QUERY_MTU: SSL_OP_NO_QUERY_MTU,
-  SSL_OP_NO_RENEGOTIATION: SSL_OP_NO_RENEGOTIATION,
   SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION: SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION,
   SSL_OP_NO_SSLv2: SSL_OP_NO_SSLv2,
   SSL_OP_NO_SSLv3: SSL_OP_NO_SSLv3,
@@ -461,10 +443,8 @@ export default {
   SSL_OP_NO_TLSv1: SSL_OP_NO_TLSv1,
   SSL_OP_NO_TLSv1_1: SSL_OP_NO_TLSv1_1,
   SSL_OP_NO_TLSv1_2: SSL_OP_NO_TLSv1_2,
-  SSL_OP_NO_TLSv1_3: SSL_OP_NO_TLSv1_3,
   SSL_OP_PKCS1_CHECK_1: SSL_OP_PKCS1_CHECK_1,
   SSL_OP_PKCS1_CHECK_2: SSL_OP_PKCS1_CHECK_2,
-  SSL_OP_PRIORITIZE_CHACHA: SSL_OP_PRIORITIZE_CHACHA,
   SSL_OP_SINGLE_DH_USE: SSL_OP_SINGLE_DH_USE,
   SSL_OP_SINGLE_ECDH_USE: SSL_OP_SINGLE_ECDH_USE,
   SSL_OP_SSLEAY_080_CLIENT_DH_BUG: SSL_OP_SSLEAY_080_CLIENT_DH_BUG,

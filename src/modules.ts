@@ -62,7 +62,7 @@ export function builtinsResolver(opts: NodePolyfillsOptions) {
 
   return (importee: string) => {
     if (importee && importee.slice(-1) === '/') {
-      importee === importee.slice(0, -1);
+      importee = importee.slice(0, -1);
     }
     if (libs.has(importee)) {
       return {id: libs.get(importee), moduleSideEffects: false};

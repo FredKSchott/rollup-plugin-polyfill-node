@@ -21263,7 +21263,7 @@ var _requiredBy = [
 var _resolved = "https://registry.npmjs.org/elliptic/-/elliptic-6.5.3.tgz";
 var _shasum = "cb59eb2efdaf73a0bd78ccd7015a62ad6e0f93d6";
 var _spec = "elliptic@^6.5.3";
-var _where = "/home/codespace/workspace/rollup-plugin-node-polyfills/node_modules/browserify-sign";
+var _where = "/rollup-plugin-node-polyfills/node_modules/browserify-sign";
 var author = {
 	name: "Fedor Indutny",
 	email: "fedor@indutny.com"
