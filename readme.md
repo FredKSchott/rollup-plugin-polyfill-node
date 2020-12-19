@@ -5,11 +5,32 @@ rollup-plugin-polyfill-node
 
 > Not yet released, the following npm install command doesn't work yet.
 
+## Quickstart
+
 ```
 npm install --save-dev rollup-plugin-polyfill-node
 ```
 
-Allows the node builtins to be `require`d/`import`ed.
+```js
+import nodePolyfills from 'rollup-plugin-polyfill-node';
+rollup({
+  entry: 'main.js',
+  plugins: [
+    nodePolyfills( /* options */ )
+  ]
+})
+```
+
+## Options
+
+*All options are optional.*
+
+- `include: Array<string | RegExp> | string | RegExp | null;`: Defaults to transforming Node.js builtins in all `node_modules/**/*.js` files only. Pass in `null` to transform all files, including all files including any source files.
+- `exclude: Array<string | RegExp> | string | RegExp | null;`: Exclude files from transformation. 
+- `sourceMap: boolean`: True to get source maps, false otherwise.
+
+
+## Node.js Builtin Support Table
 
 The following modules include ES6 specific version which allow you to do named imports in addition to the default import and should work fine if you only use this plugin.
 
@@ -55,46 +76,6 @@ The following modules include ES6 specific version which allow you to do named i
 
 ∆ not shimmed, just returns mock
 
-˚ optional, add option to enable browserified shim
-
-Crypto is not shimmed and and we just provide the commonjs one from browserify  and it will likely not work, if you really want it please pass `{crypto: true}` as an option.
+˚ shimmed, but too complex to polyfill fully. Avoid if at all possible. Some bugs and partial support expected. 
 
 Not all included modules rollup equally, streams (and by extension anything that requires it like http) are a mess of circular references that are pretty much impossible to tree-shake out, similarly url methods are actually a shortcut to a url object so those methods don't tree shake out very well, punycode, path, querystring, events, util, and process tree shake very well especially if you do named imports.
-
-config for using this with something simple like events or querystring
-
-```js
-import nodePolyfills from 'rollup-plugin-node-polyfills';
-rollup({
-  entry: 'main.js',
-  plugins: [
-    nodePolyfills()
-  ]
-})
-```
-
-and now if main contains this, it should just work
-
-```js
-import EventEmitter from 'events';
-import {inherits} from 'util';
-
-// etc
-```
-
-Config for something more complicated like http
-
-```js
-import nodePolyfills from 'rollup-plugin-node-polyfills';
-rollup({
-  entry: 'main.js',
-  plugins: [
-    nodePolyfills()
-  ]
-})
-```
-
-License
-===
-
-MIT except ES6 ports of browserify modules which are whatever the original library was.
