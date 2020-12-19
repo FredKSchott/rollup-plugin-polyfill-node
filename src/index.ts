@@ -1,6 +1,6 @@
 // @ts-ignore
 import inject from "@rollup/plugin-inject";
-import { getModules, NodePolyfillsOptions } from "./modules";
+import { getModules } from "./modules";
 import { dirname, relative, resolve, join } from "path";
 import { randomBytes } from "crypto";
 import POLYFILLS from './polyfills';
@@ -8,8 +8,14 @@ import POLYFILLS from './polyfills';
 const PREFIX = `polyfill-node:`;
 const PREFIX_LENGTH = PREFIX.length;
 
+export interface NodePolyfillsOptions {
+  sourceMap?: boolean;
+  include?: Array<string | RegExp> | string | RegExp | null;
+  exclude?: Array<string | RegExp> | string | RegExp | null;
+}
+
 export default function (opts: NodePolyfillsOptions = {}) {
-  const mods = getModules(opts);
+  const mods = getModules();
   const injectPlugin = inject({
     include: opts.include === undefined ? ['node_modules/**/*.js'] : undefined,
     exclude: opts.exclude,
