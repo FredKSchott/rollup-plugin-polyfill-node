@@ -41,7 +41,7 @@
 // the results of the previous transformed chunk were consumed.
 
 
-import {Duplex} from './duplex';
+import {Duplex} from '_stream_duplex';
 
 
 import {inherits} from 'util';

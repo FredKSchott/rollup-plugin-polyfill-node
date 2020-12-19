@@ -20,7 +20,7 @@
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import {Transform} from 'stream';
-import * as _binding from './zlib-lib/binding';
+import * as _binding from 'polyfill-node:__zlib-lib/binding';
 import {inherits} from 'util';
 function assert (a, msg) {
   if (!a) {

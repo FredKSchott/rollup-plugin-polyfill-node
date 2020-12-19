@@ -27,7 +27,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 modified by Calvin Metcalf to adhere to how the node one works a little better
 */
 import {EventEmitter} from 'events';
-import inherits from './inherits';
+import inherits from '_inherits';
 inherits(Domain, EventEmitter);
 function createEmitError(d) {
   return emitError;

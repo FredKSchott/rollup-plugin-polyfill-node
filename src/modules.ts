@@ -1,4 +1,5 @@
-const EMPTY_PATH = require.resolve('../polyfills/empty.js');
+import POLYFILLS from './polyfills';
+const EMPTY_PATH = POLYFILLS['empty.js'];
 
 export interface NodePolyfillsOptions {
   fs?: boolean;
@@ -9,36 +10,39 @@ export interface NodePolyfillsOptions {
   exclude?: Array<string | RegExp> | string | RegExp | null;
 }
 
-export function builtinsResolver(opts: NodePolyfillsOptions) {
+export function getModules(opts: NodePolyfillsOptions) {
   const libs = new Map();
 
-  libs.set('process', require.resolve('../polyfills/process-es6'));
-  libs.set('buffer', require.resolve('../polyfills/buffer-es6'));
-  libs.set('util', require.resolve('../polyfills/util'));
+  libs.set('process', POLYFILLS['process-es6.js']);
+  libs.set('global', POLYFILLS['global.js']);
+  libs.set('buffer', POLYFILLS['buffer-es6.js']);
+  libs.set('util', POLYFILLS['util.js']);
   libs.set('sys', libs.get('util'));
-  libs.set('events', require.resolve('../polyfills/events'));
-  libs.set('stream', require.resolve('../polyfills/stream'));
-  libs.set('path', require.resolve('../polyfills/path'));
-  libs.set('querystring', require.resolve('../polyfills/qs'));
-  libs.set('punycode', require.resolve('../polyfills/punycode'));
-  libs.set('url', require.resolve('../polyfills/url'));
-  libs.set('string_decoder', require.resolve('../polyfills/string-decoder'));
-  libs.set('http', require.resolve('../polyfills/http'));
-  libs.set('https', require.resolve('../polyfills/http'));
-  libs.set('os', require.resolve('../polyfills/os'));
-  libs.set('assert', require.resolve('../polyfills/assert'));
-  libs.set('constants', require.resolve('../polyfills/constants'));
-  libs.set('_stream_duplex', require.resolve('../polyfills/readable-stream/duplex'));
-  libs.set('_stream_passthrough', require.resolve('../polyfills/readable-stream/passthrough'));
-  libs.set('_stream_readable', require.resolve('../polyfills/readable-stream/readable'));
-  libs.set('_stream_writable', require.resolve('../polyfills/readable-stream/writable'));
-  libs.set('_stream_transform', require.resolve('../polyfills/readable-stream/transform'));
-  libs.set('timers', require.resolve('../polyfills/timers'));
-  libs.set('console', require.resolve('../polyfills/console'));
-  libs.set('vm', require.resolve('../polyfills/vm'));
-  libs.set('zlib', require.resolve('../polyfills/zlib'));
-  libs.set('tty', require.resolve('../polyfills/tty'));
-  libs.set('domain', require.resolve('../polyfills/domain'));
+  libs.set('events', POLYFILLS['events.js']);
+  libs.set('stream', POLYFILLS['stream.js']);
+  libs.set('path', POLYFILLS['path.js']);
+  libs.set('querystring', POLYFILLS['qs.js']);
+  libs.set('punycode', POLYFILLS['punycode.js']);
+  libs.set('url', POLYFILLS['url.js']);
+  libs.set('string_decoder', POLYFILLS['string-decoder.js']);
+  libs.set('http', POLYFILLS['http.js']);
+  libs.set('https', POLYFILLS['http.js']);
+  libs.set('os', POLYFILLS['os.js']);
+  libs.set('assert', POLYFILLS['assert.js']);
+  libs.set('constants', POLYFILLS['constants.js']);
+  libs.set('_stream_duplex', POLYFILLS['__readable-stream/duplex.js']);
+  libs.set('_stream_passthrough', POLYFILLS['__readable-stream/passthrough.js']);
+  libs.set('_stream_readable', POLYFILLS['__readable-stream/readable.js']);
+  libs.set('_stream_writable', POLYFILLS['__readable-stream/writable.js']);
+  libs.set('_stream_transform', POLYFILLS['__readable-stream/transform.js']);
+  libs.set('_inherits', POLYFILLS['inherits.js']);
+  libs.set('_buffer_list', POLYFILLS['__readable-stream/buffer-list.js']);
+  libs.set('timers', POLYFILLS['timers.js']);
+  libs.set('console', POLYFILLS['console.js']);
+  libs.set('vm', POLYFILLS['vm.js']);
+  libs.set('zlib', POLYFILLS['zlib.js']);
+  libs.set('tty', POLYFILLS['tty.js']);
+  libs.set('domain', POLYFILLS['domain.js']);
 
   // not shimmed
   libs.set('dns', EMPTY_PATH);
@@ -54,19 +58,11 @@ export function builtinsResolver(opts: NodePolyfillsOptions) {
   libs.set('crypto', EMPTY_PATH);
 
   if (opts.fs) {
-    libs.set('fs', require.resolve('../polyfills/browserify-fs'));
+    libs.set('fs', POLYFILLS['browserify-fs.js']);
   }
   if (opts.crypto) {
-    libs.set('crypto', require.resolve('../polyfills/crypto-browserify'));
+    libs.set('crypto', POLYFILLS['crypto-browserify.js']);
   }
 
-  return (importee: string) => {
-    if (importee && importee.slice(-1) === '/') {
-      importee = importee.slice(0, -1);
-    }
-    if (libs.has(importee)) {
-      return {id: libs.get(importee), moduleSideEffects: false};
-    }
-    return null;
-  }
+  return libs;
 }

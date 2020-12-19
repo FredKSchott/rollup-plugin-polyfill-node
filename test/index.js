@@ -6,6 +6,7 @@ const constants = require('constants');
 const debug = require('debug')('builtins:test');
 const files = [
   'events.js',
+  'http.js',
   'url-parse.js',
   'url-format.js',
   'stream.js',
@@ -19,7 +20,10 @@ const files = [
   'crypto.js'
 ];
 
-describe('rollup-plugin-node-polyfills', () => {
+describe('rollup-plugin-node-polyfills', function() {
+  
+  this.timeout(5000);
+
   files.forEach((file) => {
     it('works with ' + file, function (done) {
       rollup.rollup({
@@ -46,6 +50,7 @@ describe('rollup-plugin-node-polyfills', () => {
         context.self = context;
         script.runInContext(context);
       })
+      .catch(done)
     });
   })
 

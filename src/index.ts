@@ -1,55 +1,75 @@
 // @ts-ignore
-import inject from '@rollup/plugin-inject';
-import { builtinsResolver, NodePolyfillsOptions } from './modules';
-import { dirname, relative } from 'path';
-import { randomBytes } from 'crypto';
+import inject from "@rollup/plugin-inject";
+import { getModules, NodePolyfillsOptions } from "./modules";
+import { dirname, relative, resolve, join } from "path";
+import { randomBytes } from "crypto";
+import POLYFILLS from './polyfills';
+
+const PREFIX = `polyfill-node:`;
+const PREFIX_LENGTH = PREFIX.length;
 
 export default function (opts: NodePolyfillsOptions = {}) {
+  const mods = getModules(opts);
   const injectPlugin = inject({
-    include: opts.include === undefined ? 'node_modules/**/*.js' : undefined,
+    include: opts.include === undefined ? ['node_modules/**/*.js'] : undefined,
     exclude: opts.exclude,
     sourceMap: opts.sourceMap,
     modules: {
-      'process': 'process',
-      'Buffer': ['buffer', 'Buffer'],
-      'global': GLOBAL_PATH,
-      '__filename': FILENAME_PATH,
-      '__dirname': DIRNAME_PATH,
-    }
+      process: PREFIX + "process",
+      Buffer: [PREFIX + "buffer", "Buffer"],
+      global: PREFIX + 'global',
+      __filename: FILENAME_PATH,
+      __dirname: DIRNAME_PATH,
+    },
   });
-  const basedir = opts.baseDir || '/';
+  const basedir = opts.baseDir || "/";
   const dirs = new Map<string, string>();
-  const resolver = builtinsResolver(opts);
   return {
-    name: 'node-polyfills',
+    name: "polyfill-node",
     resolveId(importee: string, importer: string) {
       if (importee === DIRNAME_PATH) {
         const id = getRandomId();
-        dirs.set(id, dirname('/' + relative(basedir, importer)));
-        return {id, moduleSideEffects: false};
+        dirs.set(id, dirname("/" + relative(basedir, importer)));
+        return { id, moduleSideEffects: false };
       }
       if (importee === FILENAME_PATH) {
         const id = getRandomId();
-        dirs.set(id, dirname('/' + relative(basedir, importer)));
-        return {id, moduleSideEffects: false};
+        dirs.set(id, dirname("/" + relative(basedir, importer)));
+        return { id, moduleSideEffects: false };
       }
-      return resolver(importee);
+      if (importee && importee.slice(-1) === "/") {
+        importee = importee.slice(0, -1);
+      }
+      if (importer && importer.startsWith(PREFIX) && importee.startsWith('.')) {
+        importee = PREFIX + join(importer.substr(PREFIX_LENGTH).replace('.js', ''), '..', importee) + '.js';
+      }
+      if (importee.startsWith(PREFIX)) {
+        importee = importee.substr(PREFIX_LENGTH);
+      }
+      if (mods.has(importee) || (POLYFILLS as any)[importee.replace('.js', '') + '.js']) {
+        return { id: PREFIX + importee.replace('.js', '') + '.js', moduleSideEffects: false };
+      }
+      return null;
     },
     load(id: string) {
       if (dirs.has(id)) {
         return `export default '${dirs.get(id)}'`;
       }
+      if (id.startsWith(PREFIX)) {
+        const importee = id.substr(PREFIX_LENGTH).replace('.js', '');
+        return mods.get(importee) || (POLYFILLS as any)[importee + '.js'];
+      } 
+
     },
-    transform(code: string, id: string)  {
-      return injectPlugin.transform.call(this, code, id);
-    }
+    transform(code: string, id: string) {
+      return injectPlugin.transform.call(this, code, id.replace(PREFIX, resolve('node_modules', 'polyfill-node')));
+    },
   };
 }
 
 function getRandomId() {
-  return randomBytes(15).toString('hex');
+  return randomBytes(15).toString("hex");
 }
 
-const GLOBAL_PATH = require.resolve('../polyfills/global.js');
-const DIRNAME_PATH = '\0node-polyfills:dirname';
-const FILENAME_PATH = '\0node-polyfills:filename';
+const DIRNAME_PATH = "\0node-polyfills:dirname";
+const FILENAME_PATH = "\0node-polyfills:filename";

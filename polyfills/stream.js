@@ -1,11 +1,11 @@
 import EE from 'events';
 import {inherits} from 'util';
 
-import {Duplex} from './readable-stream/duplex.js';
-import {Readable} from './readable-stream/readable.js';
-import {Writable} from './readable-stream/writable.js';
-import {Transform} from './readable-stream/transform.js';
-import {PassThrough} from './readable-stream/passthrough.js';
+import {Duplex} from '_stream_duplex';
+import {Readable} from '_stream_readable';
+import {Writable} from '_stream_writable';
+import {Transform} from '_stream_transform';
+import {PassThrough} from '_stream_passthrough';
 inherits(Stream, EE);
 Stream.Readable = Readable;
 Stream.Writable = Writable;

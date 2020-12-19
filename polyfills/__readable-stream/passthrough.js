@@ -1,5 +1,5 @@
 
-import {Transform} from './transform';
+import {Transform} from '_stream_transform';
 
 import {inherits} from 'util';
 inherits(PassThrough, Transform);
