@@ -1,16 +1,7 @@
 import POLYFILLS from './polyfills';
 const EMPTY_PATH = POLYFILLS['empty.js'];
 
-export interface NodePolyfillsOptions {
-  fs?: boolean;
-  crypto?: boolean;
-  sourceMap?: boolean;
-  baseDir?: string;
-  include?: Array<string | RegExp> | string | RegExp | null;
-  exclude?: Array<string | RegExp> | string | RegExp | null;
-}
-
-export function getModules(opts: NodePolyfillsOptions) {
+export function getModules() {
   const libs = new Map();
 
   libs.set('process', POLYFILLS['process-es6.js']);
@@ -43,6 +34,8 @@ export function getModules(opts: NodePolyfillsOptions) {
   libs.set('zlib', POLYFILLS['zlib.js']);
   libs.set('tty', POLYFILLS['tty.js']);
   libs.set('domain', POLYFILLS['domain.js']);
+  libs.set('fs', POLYFILLS['browserify-fs.js']);
+  libs.set('crypto', POLYFILLS['crypto-browserify.js']);
 
   // not shimmed
   libs.set('dns', EMPTY_PATH);
@@ -54,15 +47,6 @@ export function getModules(opts: NodePolyfillsOptions) {
   libs.set('readline', EMPTY_PATH);
   libs.set('repl', EMPTY_PATH);
   libs.set('tls', EMPTY_PATH);
-  libs.set('fs', EMPTY_PATH);
-  libs.set('crypto', EMPTY_PATH);
-
-  if (opts.fs) {
-    libs.set('fs', POLYFILLS['browserify-fs.js']);
-  }
-  if (opts.crypto) {
-    libs.set('crypto', POLYFILLS['crypto-browserify.js']);
-  }
 
   return libs;
 }
