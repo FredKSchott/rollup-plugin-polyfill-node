@@ -18,8 +18,7 @@
     "prebrowser-test": "npm run build && node ./browser-test/index.js"
   },
   "files": [
-    "dist",
-    "polyfills"
+    "dist"
   ],
   "keywords": [
     "rollup-plugin"
