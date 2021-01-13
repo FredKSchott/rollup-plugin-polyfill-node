@@ -1,11 +1,11 @@
 import EE from 'events';
 import {inherits} from 'util';
 
-import {Duplex} from '_stream_duplex';
-import {Readable} from '_stream_readable';
-import {Writable} from '_stream_writable';
-import {Transform} from '_stream_transform';
-import {PassThrough} from '_stream_passthrough';
+import {Duplex} from 'polyfill-node:_stream_duplex';
+import {Readable} from 'polyfill-node:_stream_readable';
+import {Writable} from 'polyfill-node:_stream_writable';
+import {Transform} from 'polyfill-node:_stream_transform';
+import {PassThrough} from 'polyfill-node:_stream_passthrough';
 inherits(Stream, EE);
 Stream.Readable = Readable;
 Stream.Writable = Writable;

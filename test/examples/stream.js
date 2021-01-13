@@ -1,4 +1,5 @@
 import {Transform} from 'stream';
+import * as allStreams from 'stream';
 
 var total = 0;
 var ended = false;

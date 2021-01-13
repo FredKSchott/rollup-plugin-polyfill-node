@@ -9,6 +9,7 @@ const PREFIX = `polyfill-node:`;
 const PREFIX_LENGTH = PREFIX.length;
 
 export interface NodePolyfillsOptions {
+  baseDir?: string;
   sourceMap?: boolean;
   include?: Array<string | RegExp> | string | RegExp | null;
   exclude?: Array<string | RegExp> | string | RegExp | null;

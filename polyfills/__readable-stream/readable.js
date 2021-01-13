@@ -6,7 +6,7 @@ import EventEmitter from 'events';
 import {inherits, debuglog} from 'util';
 import BufferList from '_buffer_list';
 import {StringDecoder} from 'string_decoder';
-import {Duplex} from '_stream_duplex';
+import {Duplex} from 'polyfill-node:_stream_duplex';
 import {nextTick} from 'process';
 
 var debug = debuglog('stream');

@@ -1,4 +1,5 @@
 const rollup = require('rollup');
+const fs = require('fs');
 const path = require('path');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
@@ -9,9 +10,16 @@ async function main() {
   await Promise.all([
     bundleDependency('process-es6'),
     bundleDependency('buffer-es6'),
-    bundleDependency('browserify-fs'),
-    bundleDependency('crypto-browserify'),
+    // bundleDependency('browserify-fs'),
+    // bundleDependency('crypto-browserify'),
   ])
+  
+  // quick and dirty find-replace
+  const cryptoPolyfillLoc = path.join(__dirname, '../polyfills/crypto-browserify.js');
+  let cryptoPolyfill = fs.readFileSync(cryptoPolyfillLoc, 'utf8');
+  cryptoPolyfill = cryptoPolyfill.replace(`import buffer$1 from 'buffer';`, `import * as buffer$1 from 'buffer';`);
+  console.log(cryptoPolyfill);
+  fs.writeFileSync(cryptoPolyfillLoc, cryptoPolyfill`, 'utf8'`)
 }
 
 async function bundleDependency(depName) {
@@ -23,13 +31,13 @@ async function bundleDependency(depName) {
         browser: true,
         preferBuiltins: true
       }),
-      // license({
-      //   thirdParty: {
-      //     output: path.join(__dirname, '..', 'polyfills', `LICENSE-${depName}.txt`),
-      //     includePrivate: true, // Default is false.
-      //     encoding: 'utf-8', // Default is utf-8.
-      //   }
-      // }),
+      license({
+        thirdParty: {
+          output: path.join(__dirname, '..', 'polyfills', `LICENSE-${depName}.txt`),
+          includePrivate: true, // Default is false.
+          encoding: 'utf-8', // Default is utf-8.
+        }
+      }),
       json(),
     ],
     external: [

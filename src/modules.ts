@@ -34,8 +34,13 @@ export function getModules() {
   libs.set('zlib', POLYFILLS['zlib.js']);
   libs.set('tty', POLYFILLS['tty.js']);
   libs.set('domain', POLYFILLS['domain.js']);
-  libs.set('fs', POLYFILLS['browserify-fs.js']);
-  libs.set('crypto', POLYFILLS['crypto-browserify.js']);
+
+  // TODO: Decide if we want to implement these or not
+  // currently causing trouble in tests
+  libs.set('fs', EMPTY_PATH);
+  libs.set('crypto', EMPTY_PATH);
+  // libs.set('fs', POLYFILLS['browserify-fs.js']);
+  // libs.set('crypto', POLYFILLS['crypto-browserify.js']);
 
   // not shimmed
   libs.set('dns', EMPTY_PATH);
