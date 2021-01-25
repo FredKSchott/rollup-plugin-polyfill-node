@@ -352,6 +352,12 @@ EventEmitter.prototype.removeListener =
 
       return this;
     };
+    
+// Alias for removeListener added in NodeJS 10.0
+// https://nodejs.org/api/events.html#events_emitter_off_eventname_listener
+EventEmitter.prototype.off = function(type, listener){
+    return this.removeListener(type, listener);
+};
 
 EventEmitter.prototype.removeAllListeners =
     function removeAllListeners(type) {
