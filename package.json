@@ -46,6 +46,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:ionic-team/rollup-plugin-node-polyfills.git"
+    "url": "https://github.com/snowpackjs/rollup-plugin-polyfill-node"
   }
 }
