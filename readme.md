@@ -10,9 +10,13 @@ rollup-plugin-polyfill-node
 
 ## Quickstart
 
-```
-npm install --save-dev rollup-plugin-polyfill-node
-```
+<code>
+  <s>npm install --save-dev rollup-plugin-polyfill-node</s>
+  
+  npm install git+https://github.com/snowpackjs/rollup-plugin-polyfill-node.git
+</code>
+
+
 
 ```js
 import nodePolyfills from 'rollup-plugin-polyfill-node';
