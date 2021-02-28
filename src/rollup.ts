@@ -20,6 +20,7 @@ export default function (opts: NodePolyfillsOptions = {}) {
   const injectPlugin = inject({
     include: opts.include === undefined ? ['node_modules/**/*.js'] : undefined,
     exclude: opts.exclude,
+    // @ts-ignore
     sourceMap: opts.sourceMap,
     modules: {
       process: PREFIX + "process",
@@ -69,6 +70,7 @@ export default function (opts: NodePolyfillsOptions = {}) {
 
     },
     transform(code: string, id: string) {
+      // @ts-ignore
       return injectPlugin.transform.call(this, code, id.replace(PREFIX, resolve('node_modules', 'polyfill-node')));
     },
   };

@@ -1,10 +1,11 @@
 
 export default {
-	input: 'lib/index.js',
+	input: 'lib/esbuild.js',
 	external: [
 		'path',
 		'crypto',
-		'@rollup/plugin-inject'
+		'@rollup/plugin-inject',
+		'esbuild'
 	],
 	output: [
 		{
