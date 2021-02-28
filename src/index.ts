@@ -5,7 +5,7 @@ import { dirname, relative, resolve, join } from "path";
 import { randomBytes } from "crypto";
 import POLYFILLS from './polyfills';
 
-const PREFIX = `polyfill-node:`;
+const PREFIX = `\0polyfill-node:`;
 const PREFIX_LENGTH = PREFIX.length;
 
 export interface NodePolyfillsOptions {
