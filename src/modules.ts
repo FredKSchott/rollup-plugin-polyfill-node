@@ -52,6 +52,7 @@ export function getModules() {
   libs.set('readline', EMPTY_PATH);
   libs.set('repl', EMPTY_PATH);
   libs.set('tls', EMPTY_PATH);
+  libs.set('perf_hooks', EMPTY_PATH);
 
   return libs;
 }

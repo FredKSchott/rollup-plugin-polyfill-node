@@ -15,11 +15,11 @@ async function main() {
   ])
   
   // quick and dirty find-replace
-  const cryptoPolyfillLoc = path.join(__dirname, '../polyfills/crypto-browserify.js');
-  let cryptoPolyfill = fs.readFileSync(cryptoPolyfillLoc, 'utf8');
-  cryptoPolyfill = cryptoPolyfill.replace(`import buffer$1 from 'buffer';`, `import * as buffer$1 from 'buffer';`);
-  console.log(cryptoPolyfill);
-  fs.writeFileSync(cryptoPolyfillLoc, cryptoPolyfill`, 'utf8'`)
+  // const cryptoPolyfillLoc = path.join(__dirname, '../polyfills/crypto-browserify.js');
+  // let cryptoPolyfill = fs.readFileSync(cryptoPolyfillLoc, 'utf8');
+  // cryptoPolyfill = cryptoPolyfill.replace(`import buffer$1 from 'buffer';`, `import * as buffer$1 from 'buffer';`);
+  // console.log(cryptoPolyfill);
+  // fs.writeFileSync(cryptoPolyfillLoc, cryptoPolyfill`, 'utf8'`)
 }
 
 async function bundleDependency(depName) {

@@ -69,6 +69,7 @@ The following modules include ES6 specific version which allow you to do named i
 - tls∆
 - fs˚
 - crypto˚
+- perf_hooks˚ - **New:* just an empty shim for now, but would love help building a true polyfill!*
 
 
 † the http and https modules are actually the same and don't differentiate based on protocol
