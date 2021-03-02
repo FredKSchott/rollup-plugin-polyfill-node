@@ -6,7 +6,7 @@ const constants = require('constants');
 const debug = require('debug')('builtins:test');
 const files = [
   'events.js',
-  'http.js',
+  'crypto.js',
   'url-parse.js',
   'url-format.js',
   'stream.js',
@@ -56,7 +56,7 @@ describe('rollup-plugin-node-polyfills', function() {
 
   it('crypto option works (though is broken)', function(done) {
     rollup.rollup({
-      entry: 'test/examples/crypto.js',
+      input: 'test/examples/crypto-broken.js',
       plugins: [
         nodePolyfills({
           include: null,
@@ -65,9 +65,12 @@ describe('rollup-plugin-node-polyfills', function() {
       ]
     }).then(function() {
       done(new Error ('should not get here'))
-    },function (err) {
-      debug(err)
-      done();
+    }, function (err) {
+      if (err.message === "'diffieHellman' is not exported by \u0000polyfill-node:crypto.js, imported by test/examples/crypto-broken.js") {
+        done();
+        return;
+      }
+      done(err)
     });
   });
 })

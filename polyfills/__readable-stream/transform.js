@@ -41,7 +41,7 @@
 // the results of the previous transformed chunk were consumed.
 
 
-import {Duplex} from 'polyfill-node:_stream_duplex';
+import {Duplex} from '\0polyfill-node:_stream_duplex';
 
 
 import {inherits} from 'util';

@@ -7,7 +7,7 @@ import {inherits, deprecate} from 'util';
 import {Buffer} from 'buffer';
 Writable.WritableState = WritableState;
 import {EventEmitter} from 'events';
-import {Duplex} from 'polyfill-node:_stream_duplex';
+import {Duplex} from '\0polyfill-node:_stream_duplex';
 import {nextTick} from 'process';
 inherits(Writable, EventEmitter);
 

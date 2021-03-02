@@ -27,7 +27,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 */
-import ClientRequest from 'polyfill-node:__http-lib/request';
+import ClientRequest from '\0polyfill-node:__http-lib/request';
 import {parse} from 'url';
 
 export function request(opts, cb) {

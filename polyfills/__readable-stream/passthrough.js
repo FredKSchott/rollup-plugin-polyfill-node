@@ -1,5 +1,5 @@
 
-import {Transform} from 'polyfill-node:_stream_transform';
+import {Transform} from '\0polyfill-node:_stream_transform';
 
 import {inherits} from 'util';
 inherits(PassThrough, Transform);
