@@ -16,7 +16,7 @@
     "release": "np --no-yarn --no-release-draft",
     "browser-test": "serve browser-test/dist",
     "prebrowser-test": "npm run build && node ./browser-test/index.js",
-    "format": "prettier --write {src,test,scripts}",
+    "format": "prettier --write {src,test,scripts,browser-test}",
     "lint": "run-p lint:*",
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --check {src,test,scripts}"
