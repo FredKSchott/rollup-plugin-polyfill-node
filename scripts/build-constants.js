@@ -11,7 +11,7 @@ Object.keys(constants).forEach(function (key) {
 out.write('export default {\n  ');
 Object.keys(constants).forEach(function (key, i) {
   if (i) {
-    out.write(',\n  ')
+    out.write(',\n  ');
   }
   out.write(`${key}: ${key}`);
 });

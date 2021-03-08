@@ -17,7 +17,7 @@ var t = new Transform({
     }
     ended = true;
     end();
-  }
+  },
 });
 t.on('finish', function () {
   if (!ended) {
@@ -25,7 +25,7 @@ t.on('finish', function () {
     return;
   }
   done();
-})
+});
 t.write('foo');
 t.write('bar');
 t.end('baz');

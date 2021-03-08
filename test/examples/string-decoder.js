@@ -3,7 +3,7 @@ import {StringDecoder} from 'string_decoder';
 var text = Buffer.from('\uD835\uDC00\uD83D\uDCA9\uD835\uDC01');
 
 var decoder = new StringDecoder();
-var ref = [ '', '', '', '𝐀', '', '', '', '💩', '', '', '', '𝐁' ];
+var ref = ['', '', '', '𝐀', '', '', '', '💩', '', '', '', '𝐁'];
 var len = text.length;
 var i = -1;
 var bad = 0;

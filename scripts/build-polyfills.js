@@ -12,8 +12,8 @@ async function main() {
     bundleDependency('buffer-es6'),
     // bundleDependency('browserify-fs'),
     // bundleDependency('crypto-browserify'),
-  ])
-  
+  ]);
+
   // quick and dirty find-replace
   // const cryptoPolyfillLoc = path.join(__dirname, '../polyfills/crypto-browserify.js');
   // let cryptoPolyfill = fs.readFileSync(cryptoPolyfillLoc, 'utf8');
@@ -29,31 +29,23 @@ async function bundleDependency(depName) {
       commonjs(),
       nodeResolve({
         browser: true,
-        preferBuiltins: true
+        preferBuiltins: true,
       }),
       license({
         thirdParty: {
           output: path.join(__dirname, '..', 'polyfills', `LICENSE-${depName}.txt`),
           includePrivate: true, // Default is false.
           encoding: 'utf-8', // Default is utf-8.
-        }
+        },
       }),
       json(),
     ],
-    external: [
-      'crypto',
-      'vm',
-      'events',
-      'path',
-      'stream',
-      'util',
-      'buffer'
-    ]
+    external: ['crypto', 'vm', 'events', 'path', 'stream', 'util', 'buffer'],
   });
 
   await bundle.write({
     format: 'esm',
-    file: path.join('polyfills', depName + '.js')
+    file: path.join('polyfills', depName + '.js'),
   });
 }
 

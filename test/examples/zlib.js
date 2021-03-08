@@ -1,6 +1,5 @@
 import {deflateSync, inflateSync} from 'zlib';
 
-
 var input = new Buffer('hello hello hello');
 
 var deflated = deflateSync(input);
@@ -8,7 +7,7 @@ var deflated = deflateSync(input);
 var reinflated = inflateSync(deflated);
 
 if (reinflated.toString() !== 'hello hello hello') {
-  done(new Error('expected \'hello hello hello\' but got \'' + reinflated.toString() +'\''));
+  done(new Error("expected 'hello hello hello' but got '" + reinflated.toString() + "'"));
 } else {
   next();
 }
