@@ -20,8 +20,5 @@ jobs:
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Lint Prettier
-        run: yarn lint:prettier
-
-      - name: Lint tsc
-        run: yarn lint:tsc
+      - name: Lint
+        run: yarn lint
