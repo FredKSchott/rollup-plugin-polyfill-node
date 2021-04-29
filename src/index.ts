@@ -69,6 +69,7 @@ export default function (opts: NodePolyfillsOptions = {}) {
 
     },
     transform(code: string, id: string) {
+      if(id === PREFIX + 'global.js') return
       return injectPlugin.transform.call(this, code, id.replace(PREFIX, resolve('node_modules', 'polyfill-node')));
     },
   };
