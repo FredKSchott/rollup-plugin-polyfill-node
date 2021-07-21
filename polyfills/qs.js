@@ -144,4 +144,9 @@ export default {
   decode: parse,
   parse: parse
 }
-export {stringify as encode, parse as decode};
+export {
+  stringify as encode,
+  stringify,
+  parse as decode,
+  parse
+};
