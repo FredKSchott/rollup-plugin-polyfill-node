@@ -1,8 +1,8 @@
 
 import {inherits} from 'util';
 import {nextTick} from 'process';
-import {Readable} from '\0polyfill-node:_stream_readable';
-import {Writable} from '\0polyfill-node:_stream_writable';
+import {Readable} from '\0polyfill-node._stream_readable';
+import {Writable} from '\0polyfill-node._stream_writable';
 
 
 inherits(Duplex, Readable);
