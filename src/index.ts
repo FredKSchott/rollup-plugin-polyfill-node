@@ -18,7 +18,7 @@ export interface NodePolyfillsOptions {
 export default function (opts: NodePolyfillsOptions = {}) {
   const mods = getModules();
   const injectPlugin = inject({
-    include: opts.include === undefined ? ['node_modules/**/*.js'] : undefined,
+    include: opts.include === undefined ? ['node_modules/**/*.js'] : opts.include,
     exclude: opts.exclude,
     sourceMap: opts.sourceMap,
     modules: {
