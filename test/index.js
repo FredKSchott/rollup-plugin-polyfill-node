@@ -66,7 +66,7 @@ describe('rollup-plugin-node-polyfills', function() {
     }).then(function() {
       done(new Error ('should not get here'))
     }, function (err) {
-      if (err.message === "'diffieHellman' is not exported by \u0000polyfill-node:crypto.js, imported by test/examples/crypto-broken.js") {
+      if (err.message === "'diffieHellman' is not exported by \u0000polyfill-node.crypto.js, imported by test/examples/crypto-broken.js") {
         done();
         return;
       }
