@@ -4,7 +4,6 @@ License: MIT
 Private: false
 Description: Node.js Buffer API, for the browser
 Repository: git://github.com/calvinmetcalf/buffer-es6.git
-Homepage: https://github.com/calvinmetcalf/buffer-es6#readme
 Author: Feross Aboukhadijeh <feross@feross.org> (http://feross.org)
 Contributors:
   Romain Beauxis <toots@rastageeks.org>
