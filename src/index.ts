@@ -1,9 +1,12 @@
 // @ts-ignore
 import inject from "@rollup/plugin-inject";
 import { getModules } from "./modules";
-import { dirname, relative, resolve, join } from "path";
+import { posix, resolve } from "path";
 import { randomBytes } from "crypto";
 import POLYFILLS from './polyfills';
+
+// Node import paths use POSIX separators
+const { dirname, relative, join } = posix;
 
 const PREFIX = `\0polyfill-node.`;
 const PREFIX_LENGTH = PREFIX.length;
