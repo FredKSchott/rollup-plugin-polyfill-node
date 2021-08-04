@@ -1,3 +1,4 @@
+import { Plugin } from "rollup";
 // @ts-ignore
 import inject from "@rollup/plugin-inject";
 import { getModules } from "./modules";
@@ -18,7 +19,7 @@ export interface NodePolyfillsOptions {
   exclude?: Array<string | RegExp> | string | RegExp | null;
 }
 
-export default function (opts: NodePolyfillsOptions = {}) {
+export default function (opts: NodePolyfillsOptions = {}): Plugin {
   const mods = getModules();
   const injectPlugin = inject({
     include: opts.include === undefined ? ['node_modules/**/*.js'] : opts.include,
@@ -36,7 +37,7 @@ export default function (opts: NodePolyfillsOptions = {}) {
   const dirs = new Map<string, string>();
   return {
     name: "polyfill-node",
-    resolveId(importee: string, importer: string) {
+    resolveId(importee: string, importer?: string) {
       if (importee === DIRNAME_PATH) {
         const id = getRandomId();
         dirs.set(id, dirname("/" + relative(basedir, importer)));
