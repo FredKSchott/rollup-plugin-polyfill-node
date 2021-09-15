@@ -17,7 +17,7 @@ export function getModules() {
   libs.set('url', POLYFILLS['url.js']);
   libs.set('string_decoder', POLYFILLS['string-decoder.js']);
   libs.set('http', POLYFILLS['http.js']);
-  libs.set('https', POLYFILLS['http.js']);
+  libs.set('https', POLYFILLS['https.js']);
   libs.set('os', POLYFILLS['os.js']);
   libs.set('assert', POLYFILLS['assert.js']);
   libs.set('constants', POLYFILLS['constants.js']);
