@@ -78,8 +78,13 @@ export function release () {
   return '';
 }
 
-export function networkInterfaces(){}
-export function getNetworkInterfaces(){}
+export function networkInterfaces () {
+  return {};
+}
+
+export function getNetworkInterfaces () {
+  return {};
+}
 
 export function arch() {
   return 'javascript';
