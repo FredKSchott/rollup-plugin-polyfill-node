@@ -28,6 +28,9 @@
   "dependencies": {
     "@rollup/plugin-inject": "^4.0.0"
   },
+  "peerDependencies": {
+    "rollup": "^1.20.0 || ^2.0.0"
+  },
   "devDependencies": {
     "browserify-fs": "^1.0.0",
     "buffer-es6": "^4.9.2",
