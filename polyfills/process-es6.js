@@ -220,5 +220,4 @@ var browser$1 = {
   uptime: uptime
 };
 
-export default browser$1;
-export { addListener, argv, binding, browser, chdir, config, cwd, emit, env, hrtime, nextTick, off, on, once, platform, release, removeAllListeners, removeListener, title, umask, uptime, version, versions };
+export { addListener, argv, binding, browser, chdir, config, cwd, browser$1 as default, emit, env, hrtime, nextTick, off, on, once, platform, release, removeAllListeners, removeListener, title, umask, uptime, version, versions };

@@ -1,6 +1,6 @@
-import { Plugin } from "rollup";
 // @ts-ignore
-import inject from "@rollup/plugin-inject";
+import type { Plugin } from "rollup";
+import inject, { RollupInjectOptions } from "@rollup/plugin-inject";
 import { getModules } from "./modules";
 import { posix, resolve } from "path";
 import { randomBytes } from "crypto";
@@ -14,7 +14,7 @@ const PREFIX_LENGTH = PREFIX.length;
 
 export interface NodePolyfillsOptions {
   baseDir?: string;
-  sourceMap?: boolean;
+  sourceMap?: RollupInjectOptions['sourceMap'];
   include?: Array<string | RegExp> | string | RegExp | null;
   exclude?: Array<string | RegExp> | string | RegExp | null;
 }
@@ -40,12 +40,12 @@ export default function (opts: NodePolyfillsOptions = {}): Plugin {
     resolveId(importee: string, importer?: string) {
       if (importee === DIRNAME_PATH) {
         const id = getRandomId();
-        dirs.set(id, dirname("/" + relative(basedir, importer)));
+        dirs.set(id, dirname("/" + relative(basedir, importer!)));
         return { id, moduleSideEffects: false };
       }
       if (importee === FILENAME_PATH) {
         const id = getRandomId();
-        dirs.set(id, dirname("/" + relative(basedir, importer)));
+        dirs.set(id, dirname("/" + relative(basedir, importer!)));
         return { id, moduleSideEffects: false };
       }
       if (importee && importee.slice(-1) === "/") {
@@ -74,7 +74,7 @@ export default function (opts: NodePolyfillsOptions = {}): Plugin {
     },
     transform(code: string, id: string) {
       if(id === PREFIX + 'global.js') return
-      return injectPlugin.transform.call(this, code, id.replace(PREFIX, resolve('node_modules', 'polyfill-node')));
+      return injectPlugin.transform!.call(this, code, id.replace(PREFIX, resolve('node_modules', 'polyfill-node')));
     },
   };
 }
