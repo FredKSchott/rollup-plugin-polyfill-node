@@ -5,7 +5,7 @@ rollup-plugin-polyfill-node
 
 > This repo is an updated, maintained fork of https://github.com/ionic-team/rollup-plugin-node-polyfills to support better Node.js polyfills in Snowpack and all other Rollup projects. See this thread for discussion on moving this plugin into the official Rollup org: https://github.com/rollup/plugins/pull/51#issuecomment-747489334
 > 
-> This repo is completely community-maintained. If you have an issue, consider helping out and submitting a PR yourself. This may be the only way to get your issue resolved!
+> **This repo is completely community-maintained.** If you have an issue and know JavaScript, help out and submit a PR. This may be the only way to get your issue resolved!
 
 
 ## Quickstart
