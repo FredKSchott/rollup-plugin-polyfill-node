@@ -38,6 +38,7 @@ export default function (opts: NodePolyfillsOptions = {}): Plugin {
   return {
     name: "polyfill-node",
     resolveId(importee: string, importer?: string) {
+      // Fixes commonjs compatability: https://github.com/FredKSchott/rollup-plugin-polyfill-node/pull/42
       if (importee[0] == '\0' && /\?commonjs-\w+$/.test(importee)) {
         importee = importee.slice(1).replace(/\?commonjs-\w+$/, '');
       }
