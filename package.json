@@ -50,6 +50,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/snowpackjs/rollup-plugin-polyfill-node"
+    "url": "https://github.com/FredKSchott/rollup-plugin-polyfill-node"
   }
 }
