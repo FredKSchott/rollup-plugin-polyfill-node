@@ -38,6 +38,9 @@ export default function (opts: NodePolyfillsOptions = {}): Plugin {
   return {
     name: "polyfill-node",
     resolveId(importee: string, importer?: string) {
+      if (importee[0] == '\0' && /\?commonjs-\w+$/.test(importee)) {
+        importee = importee.slice(1).replace(/\?commonjs-\w+$/, '');
+      }
       if (importee === DIRNAME_PATH) {
         const id = getRandomId();
         dirs.set(id, dirname("/" + relative(basedir, importer!)));
