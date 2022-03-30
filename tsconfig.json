@@ -9,6 +9,6 @@
     "declarationDir": "dist/types"
   },
   "include": [
-    "src/index.ts"
+    "src"
   ]
 }
