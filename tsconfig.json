@@ -6,7 +6,7 @@
     "target": "es2018",
     "declaration": true,
     "outDir": "lib",
-    "declarationDir": "dist/types"
+    "declarationDir": "dist"
   },
   "include": [
     "src"

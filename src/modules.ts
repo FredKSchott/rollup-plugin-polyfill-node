@@ -2,13 +2,13 @@ import POLYFILLS from './polyfills';
 const EMPTY_PATH = POLYFILLS['empty.js'];
 
 export function getModules() {
-  const libs = new Map();
+  const libs = new Map<string, string>();
 
   libs.set('process', POLYFILLS['process-es6.js']);
   libs.set('global', POLYFILLS['global.js']);
   libs.set('buffer', POLYFILLS['buffer-es6.js']);
   libs.set('util', POLYFILLS['util.js']);
-  libs.set('sys', libs.get('util'));
+  libs.set('sys', libs.get('util') as string);
   libs.set('events', POLYFILLS['events.js']);
   libs.set('stream', POLYFILLS['stream.js']);
   libs.set('path', POLYFILLS['path.js']);
