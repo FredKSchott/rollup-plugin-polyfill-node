@@ -100,7 +100,13 @@ export function tmpDir() {
 export var tmpdir = tmpDir;
 
 export var EOL = '\n';
+
+export function homedir(){
+  return '$HOME'
+}
+
 export default {
+  homedir: homedir,
   EOL: EOL,
   arch: arch,
   platform: platform,
