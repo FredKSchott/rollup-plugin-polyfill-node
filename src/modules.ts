@@ -12,7 +12,7 @@ export function getModules() {
   libs.set('events', POLYFILLS['events.js']);
   libs.set('stream', POLYFILLS['stream.js']);
   libs.set('path', POLYFILLS['path.js']);
-  libs.set('querystring', POLYFILLS['qs.js']);
+  libs.set('querystring', POLYFILLS['querystring.js']);
   libs.set('punycode', POLYFILLS['punycode.js']);
   libs.set('url', POLYFILLS['url.js']);
   libs.set('string_decoder', POLYFILLS['string-decoder.js']);
