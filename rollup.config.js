@@ -1,4 +1,4 @@
-
+/** @returns {import("rollup").RollupOptions} */
 export default {
 	input: 'lib/index.js',
 	external: [
@@ -6,18 +6,11 @@ export default {
 		'crypto',
 		'@rollup/plugin-inject'
 	],
-	output: [
-		{
-			format: 'es',
-			file: 'dist/index.mjs',
-			preferConst: true,
-			exports: 'auto',
-		},
-		{
-			format: 'cjs',
-			file: 'dist/index.js',
-			preferConst: true,
-			exports: 'auto',
-		}
-	]
+	output: ['es','cjs'].map((format) => ({
+		dir: `dist/${format==='es' ? 'es' : ''}`,
+		exports: 'auto',
+		format,
+		preferConst: true,
+		preserveModules: true,
+	})),
 };

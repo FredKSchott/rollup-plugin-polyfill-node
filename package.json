@@ -2,8 +2,8 @@
   "name": "rollup-plugin-polyfill-node",
   "version": "0.9.0",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/types/index.d.ts",
+  "module": "dist/es/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "pretest": "npm run build",
     "test": "mocha",
