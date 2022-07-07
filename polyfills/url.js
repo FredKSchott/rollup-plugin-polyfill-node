@@ -27,12 +27,14 @@ export {
   urlParse as parse,
   urlResolve as resolve,
   urlResolveObject as resolveObject,
+  urlFileURLToPath as fileURLToPath,
   urlFormat as format
 };
 export default {
   parse: urlParse,
   resolve: urlResolve,
   resolveObject: urlResolveObject,
+  fileURLToPath: urlFileURLToPath,
   format: urlFormat,
   Url: Url
 }
@@ -373,6 +375,31 @@ function parse(self, url, parseQueryString, slashesDenoteHost) {
   // finally, reconstruct the href based on what has been validated.
   self.href = format(self);
   return self;
+}
+
+function urlFileURLToPath(path) {
+  if (typeof path === 'string')
+    path = new Url().parse(path);
+  else if (!(url instanceof Url))
+    throw new TypeError('The "path" argument must be of type string or an instance of URL. Received type ' + (typeof path) + String(path));
+  if (path.protocol !== 'file:')
+    throw new TypeError('The URL must be of scheme file');
+  return getPathFromURLPosix(path);
+}
+
+function getPathFromURLPosix(url) {
+  const pathname = url.pathname;
+  for (let n = 0; n < pathname.length; n++) {
+    if (pathname[n] === '%') {
+      const third = pathname.codePointAt(n + 2) | 0x20;
+      if (pathname[n + 1] === '2' && third === 102) {
+        throw new TypeError(
+          'must not include encoded / characters'
+        );
+      }
+    }
+  }
+  return decodeURIComponent(pathname);
 }
 
 // format a parsed object into a url string
