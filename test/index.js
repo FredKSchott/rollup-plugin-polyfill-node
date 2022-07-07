@@ -8,6 +8,7 @@ const files = [
   'events.js',
   'crypto.js',
   'url-parse.js',
+  'url-file-url-to-path.js',
   'url-format.js',
   'stream.js',
   'assert.js',
