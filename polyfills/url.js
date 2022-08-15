@@ -23,12 +23,21 @@
 import {toASCII} from 'punycode';
 import {isObject,isString,isNullOrUndefined,isNull} from 'util';
 import {parse as qsParse,stringify as qsStringify} from 'querystring';
+
+// WHATWG API
+const URL = global.URL;
+const URLSearchParams = global.URLSearchParams;
+
 export {
   urlParse as parse,
   urlResolve as resolve,
   urlResolveObject as resolveObject,
   urlFileURLToPath as fileURLToPath,
-  urlFormat as format
+  urlFormat as format,
+
+  // WHATWG API
+  URL,
+  URLSearchParams,  
 };
 export default {
   parse: urlParse,
@@ -36,7 +45,11 @@ export default {
   resolveObject: urlResolveObject,
   fileURLToPath: urlFileURLToPath,
   format: urlFormat,
-  Url: Url
+  Url: Url,
+
+  // WHATWG API
+  URL,
+  URLSearchParams,  
 }
 export function Url() {
   this.protocol = null;
