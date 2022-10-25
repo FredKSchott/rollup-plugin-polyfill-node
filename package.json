@@ -26,25 +26,24 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@rollup/plugin-inject": "^4.0.0"
+    "@rollup/plugin-inject": "^5.0.1"
   },
   "peerDependencies": {
-    "rollup": "^1.20.0 || ^2.0.0"
+    "rollup": "^1.20.0 || ^2.0.0 || ^3.0.0"
   },
   "devDependencies": {
     "browserify-fs": "^1.0.0",
-    "buffer-es6": "^4.9.2",
+    "buffer-es6": "^4.9.3",
     "crypto-browserify": "^3.11.0",
     "debug": "^4.1.1",
     "glob": "^7.1.6",
     "mocha": "^8.0.0",
-    "np": "^7.5.0",
-    "process-es6": "^0.11.2",
-    "rollup": "^2.60.2",
-    "rollup-plugin-commonjs": "^10.0.0",
+    "np": "^7.6.2",
+    "process-es6": "^0.11.6",
+    "rollup": "^3.2.2",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-license": "^2.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
     "serve": "^11.3.2",
     "typescript": "^4.0.0"
   },

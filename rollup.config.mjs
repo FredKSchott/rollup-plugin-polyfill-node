@@ -10,7 +10,9 @@ export default {
 		dir: `dist/${format==='es' ? 'es' : ''}`,
 		exports: 'auto',
 		format,
-		preferConst: true,
+		generatedCode: {
+			constBindings: true
+		},
 		preserveModules: true,
 	})),
 };
