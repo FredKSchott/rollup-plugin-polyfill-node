@@ -51,20 +51,34 @@ function normalizeArray(parts, allowAboveRoot) {
 
 // Split a filename into [root, dir, basename, ext], unix version
 // 'root' is just a slash, or nothing.
-var splitPathRe =
+const splitPosixPathRe =
     /^(\/?|)([\s\S]*?)((?:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(?:[\/]*)$/;
-var splitPath = function(filename) {
-  return splitPathRe.exec(filename).slice(1);
+
+// Split a filename into [root, dir, basename, ext], win version
+// 'root' is a drive letter, like 'C:', or '\\host' for UNC, or nothing.
+const splitWinPathRe =
+    /^([a-zA-Z]:|[\/\\]{2}(?:[\s\S]*?(?=[\/\\]))?)?([\s\S]*?)((?:\.{1,2}|[^\/\\]+?|)(\.[^.\/\\]*|))(?:[\/\\]*)$/;
+
+function splitPath(filename, posix = true) {
+  return posix
+    ? splitPosixPathRe.exec(filename).slice(1)
+    : splitWinPathRe.exec(filename).slice(1);
 };
 
 // path.resolve([from ...], to)
 // posix version
 export function resolve() {
+  return _resolve(...arguments, true);
+}
+function _resolve() {
   var resolvedPath = '',
-      resolvedAbsolute = false;
+    resolvedAbsolute = false,
+    posix = arguments[arguments.length - 1],
+    sep = posix ? '/' : '\\',
+    maxArgumentIndex = arguments.length - 2;
 
-  for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
-    var path = (i >= 0) ? arguments[i] : '/';
+  for (var i = maxArgumentIndex; i >= -1 && !resolvedAbsolute; i--) {
+    var path = (i >= 0) ? arguments[i] : sep;
 
     // Skip empty and invalid entries
     if (typeof path !== 'string') {
@@ -73,62 +87,79 @@ export function resolve() {
       continue;
     }
 
-    resolvedPath = path + '/' + resolvedPath;
-    resolvedAbsolute = path.charAt(0) === '/';
+    resolvedPath = path + sep + resolvedPath;
+    resolvedAbsolute = _isAbsolute(path, posix);
   }
 
   // At this point the path should be resolved to a full absolute path, but
   // handle relative paths to be safe (might happen when process.cwd() fails)
 
   // Normalize the path
-  resolvedPath = normalizeArray(filter(resolvedPath.split('/'), function(p) {
+  resolvedPath = normalizeArray(filter(resolvedPath.split(sep), function(p) {
     return !!p;
-  }), !resolvedAbsolute).join('/');
+  }), !resolvedAbsolute).join(sep);
 
-  return ((resolvedAbsolute ? '/' : '') + resolvedPath) || '.';
+  return ((resolvedAbsolute ? sep : '') + resolvedPath) || '.';
 };
 
 // path.normalize(path)
 // posix version
 export function normalize(path) {
-  var isPathAbsolute = isAbsolute(path),
-      trailingSlash = substr(path, -1) === '/';
+  return _normalize(path, true);
+}
+function _normalize(path, posix) {
+  const sep = posix ? '/' : '\\',
+    isPathAbsolute = _isAbsolute(path, posix),
+    trailingSlash = substr(path, -1) === sep;
 
   // Normalize the path
-  path = normalizeArray(filter(path.split('/'), function(p) {
+  path = normalizeArray(filter(path.split(sep), function(p) {
     return !!p;
-  }), !isPathAbsolute).join('/');
+  }), !isPathAbsolute).join(sep);
 
   if (!path && !isPathAbsolute) {
     path = '.';
   }
   if (path && trailingSlash) {
-    path += '/';
+    path += sep;
   }
 
-  return (isPathAbsolute ? '/' : '') + path;
+  return (isPathAbsolute ? sep : '') + path;
 };
 
 // posix version
 export function isAbsolute(path) {
-  return path.charAt(0) === '/';
+  return _isAbsolute(path, true);
+}
+function _isAbsolute(path, posix) {
+  return posix
+    ? path.charAt(0) === '/'
+    : splitPath(path, posix)[0].charAt(0) === '\\';
 }
 
 // posix version
 export function join() {
-  var paths = Array.prototype.slice.call(arguments, 0);
-  return normalize(filter(paths, function(p, index) {
+  return _join(arguments, true);
+}
+function _join(args, posix) {
+  const sep = posix ? '/' : '\\',
+    paths = Array.prototype.slice.call(args, 0);
+  return _normalize(filter(paths, function(p, index) {
     if (typeof p !== 'string') {
       throw new TypeError('Arguments to path.join must be strings');
     }
     return p;
-  }).join('/'));
+  }).join(sep), sep);
 }
-
 
 // path.relative(from, to)
 // posix version
 export function relative(from, to) {
+  return _relative(from, to, true);
+}
+function _relative(from, to, posix) {
+  const sep = posix ? '/' : '\\';
+
   from = resolve(from).substr(1);
   to = resolve(to).substr(1);
 
@@ -147,8 +178,8 @@ export function relative(from, to) {
     return arr.slice(start, end - start + 1);
   }
 
-  var fromParts = trim(from.split('/'));
-  var toParts = trim(to.split('/'));
+  var fromParts = trim(from.split(sep));
+  var toParts = trim(to.split(sep));
 
   var length = Math.min(fromParts.length, toParts.length);
   var samePartsLength = length;
@@ -166,14 +197,18 @@ export function relative(from, to) {
 
   outputParts = outputParts.concat(toParts.slice(samePartsLength));
 
-  return outputParts.join('/');
+  return outputParts.join(sep);
 }
 
 export var sep = '/';
 export var delimiter = ':';
 
+// posix version
 export function dirname(path) {
-  var result = splitPath(path),
+  return _dirname(path, true);
+}
+function _dirname(path, posix) {
+  var result = splitPath(path, posix),
       root = result[0],
       dir = result[1];
 
@@ -190,8 +225,12 @@ export function dirname(path) {
   return root + dir;
 }
 
+// posix version
 export function basename(path, ext) {
-  var f = splitPath(path)[2];
+  return _basename(path, ext, true);
+}
+function _basename(path, ext, posix) {
+  var f = splitPath(path, posix)[2];
   // TODO: make this comparison case-insensitive on windows?
   if (ext && f.substr(-1 * ext.length) === ext) {
     f = f.substr(0, f.length - ext.length);
@@ -199,22 +238,14 @@ export function basename(path, ext) {
   return f;
 }
 
-
+// posix version
 export function extname(path) {
-  return splitPath(path)[3];
+  return _extname(path, true);
 }
-export default {
-  extname: extname,
-  basename: basename,
-  dirname: dirname,
-  sep: sep,
-  delimiter: delimiter,
-  relative: relative,
-  join: join,
-  isAbsolute: isAbsolute,
-  normalize: normalize,
-  resolve: resolve
-};
+function _extname(path, posix) {
+  return splitPath(path, posix)[3];
+}
+
 function filter (xs, f) {
     if (xs.filter) return xs.filter(f);
     var res = [];
@@ -225,10 +256,64 @@ function filter (xs, f) {
 }
 
 // String.prototype.substr - negative index don't work in IE8
-var substr = 'ab'.substr(-1) === 'b' ?
-    function (str, start, len) { return str.substr(start, len) } :
-    function (str, start, len) {
-        if (start < 0) start = str.length + start;
-        return str.substr(start, len);
-    }
-;
+var substr = 'ab'.substr(-1) === 'b'
+  ? function (str, start, len) { return str.substr(start, len) }
+  : function (str, start, len) {
+      if (start < 0) {
+        start = str.length + start;
+      }
+      return str.substr(start, len);
+    };
+
+export const posix = {
+  basename: basename,
+  delimiter: ':',
+  dirname: dirname,
+  extname: extname,
+  join: join,
+  normalize: normalize,
+  relative: relative,
+  resolve: resolve,
+  sep: '/'
+};
+
+export const win32 = {
+  basename: function (path, ext) {
+    return _basename(path, ext, false);
+  },
+  delimiter: ';',
+  dirname: function (path) {
+    return _dirname(path, false);
+  },
+  extname: function(path) {
+    return _extname(path, false);
+  },
+  join: function () {
+    return _join(arguments, false);
+  },
+  normalize: function (path) {
+    return _normalize(path, false);
+  },
+  relative: function (from, to) {
+    return _relative(from, to, false);
+  },
+  resolve: function () {
+    return _resolve(...arguments, false);
+  },
+  sep: '\\'
+};
+
+export default {
+  basename: basename,
+  delimiter: delimiter,
+  dirname: dirname,
+  extname: extname,
+  isAbsolute: isAbsolute,
+  join: join,
+  normalize: normalize,
+  posix: posix,
+  relative: relative,
+  resolve: resolve,
+  sep: sep,
+  win32: win32
+};
