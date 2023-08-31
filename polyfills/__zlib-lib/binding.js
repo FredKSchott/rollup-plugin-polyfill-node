@@ -218,7 +218,7 @@ Zlib.prototype._write = function(flush, input, in_off, in_len, out, out_off, out
     throw new Error('Unknown mode ' + this.mode);
   }
 
-  if (!this._checkError(status)) {
+  if (!this._checkError(status, strm, flush)) {
     this._error(status);
   }
 
@@ -226,12 +226,12 @@ Zlib.prototype._write = function(flush, input, in_off, in_len, out, out_off, out
   return [strm.avail_in, strm.avail_out];
 };
 
-Zlib.prototype._checkError = function (status) {
+Zlib.prototype._checkError = function (status, strm, flush) {
   // Acceptable error states depend on the type of zlib stream.
   switch (status) {
     case Z_OK:
     case Z_BUF_ERROR:
-      if (this.strm.avail_out !== 0 && this.flush === Z_FINISH) {
+      if (strm.avail_out !== 0 && flush === Z_FINISH) {
         return false
       }
       break
