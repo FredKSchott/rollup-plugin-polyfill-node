@@ -83,3 +83,36 @@ The following modules include ES6 specific version which allow you to do named i
 ˚ shimmed, but too complex to polyfill fully. Avoid if at all possible. Some bugs and partial support expected. 
 
 Not all included modules rollup equally, streams (and by extension anything that requires it like http) are a mess of circular references that are pretty much impossible to tree-shake out, similarly url methods are actually a shortcut to a url object so those methods don't tree shake out very well, punycode, path, querystring, events, util, and process tree shake very well especially if you do named imports.
+
+## Troubleshoot
+
+Merge with other plugins sample
+
+```js
+import nodePolyfills from 'rollup-plugin-polyfill-node';
+rollup({
+  entry: 'main.js',
+  plugins: [
+    // const json = require('@rollup/plugin-json');
+    // transpile json first
+    json(),
+    // const nodePolyfills = require('rollup-plugin-polyfill-node');
+    // replace node built-ins module
+    nodePolyfills( /* options */ ),
+    // const resolve = require('@rollup/plugin-node-resolve');
+    // resolve external modules
+    resolve({
+      // To provide stubbed versions of Node built-ins with plugin rollup-plugin-polyfill-node
+      preferBuiltins: false,
+      // To instructs the plugin to use the browser module resolutions in package.json and adds 'browser' to exportConditions
+      browser: true
+    }),
+    // const commonjs = require('@rollup/plugin-commonjs');
+    // transpile to CommonJS
+    commonjs(),
+    // const { terser } = require('rollup-plugin-terser');
+    // minify output
+    terser()
+  ]
+})
+```
