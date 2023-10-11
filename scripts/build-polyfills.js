@@ -1,9 +1,9 @@
 const rollup = require('rollup');
 // const fs = require('fs');
 const path = require('path');
-const nodeResolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
-const json = require('rollup-plugin-json');
+const nodeResolve = require('@rollup/plugin-node-resolve');
+const commonjs = require('@rollup/plugin-commonjs');
+const json = require('@rollup/plugin-json');
 
 async function main() {
   await Promise.all([
@@ -12,7 +12,7 @@ async function main() {
     // bundleDependency('browserify-fs'),
     // bundleDependency('crypto-browserify'),
   ])
-  
+
   // quick and dirty find-replace
   // const cryptoPolyfillLoc = path.join(__dirname, '../polyfills/crypto-browserify.js');
   // let cryptoPolyfill = fs.readFileSync(cryptoPolyfillLoc, 'utf8');
