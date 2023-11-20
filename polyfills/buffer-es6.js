@@ -205,6 +205,8 @@ var isArray = Array.isArray || function (arr) {
  * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
  * @license  MIT
  */
+/* eslint-disable no-proto */
+
 
 var INSPECT_MAX_BYTES = 50;
 
