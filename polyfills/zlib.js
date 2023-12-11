@@ -354,7 +354,7 @@ export function Zlib(opts, mode) {
 
     var error = new Error(message);
     error.errno = errno;
-    error.code = binding.codes[errno];
+    error.code = codes[errno];
     self.emit('error', error);
   };
 

@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-polyfill-node",
-  "version": "0.12.0",
+  "version": "0.13.0",
   "main": "dist/index.js",
   "module": "dist/es/index.js",
   "types": "dist/index.d.ts",
@@ -26,26 +26,26 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@rollup/plugin-inject": "^5.0.1"
+    "@rollup/plugin-inject": "^5.0.4"
   },
   "peerDependencies": {
-    "rollup": "^1.20.0 || ^2.0.0 || ^3.0.0"
+    "rollup": "^1.20.0 || ^2.0.0 || ^3.0.0 || ^4.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.5",
+    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "browserify-fs": "^1.0.0",
     "buffer-es6": "^4.9.3",
     "crypto-browserify": "^3.11.0",
     "debug": "^4.1.1",
     "glob": "^7.1.6",
-    "mocha": "^8.0.0",
-    "np": "^7.6.2",
+    "mocha": "^10.2.0",
+    "np": "^8.0.4",
     "process-es6": "^0.11.6",
-    "rollup": "^3.2.2",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup": "^4.0.2",
     "serve": "^11.3.2",
-    "typescript": "^4.0.0"
+    "typescript": "^5.2.2"
   },
   "repository": {
     "type": "git",
